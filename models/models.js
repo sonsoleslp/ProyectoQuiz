@@ -3,7 +3,7 @@ var path = require('path');
 var url = process.env.DATABASE_URL.match(/(.*)\:\/\/(.*?)\:(.*)@(.*)\:(.*)\/(.*)/);
 var DB_name = (url[6]||null);
 var user = (url[2]||null);
-var pwd = (url[3]||null);
+var pwd = (url[3]||nul l);
 var protocol  = (url[1]||null);
 var dialect  = (url[1]||null);
 var port  = (url[5]||null);
@@ -25,7 +25,7 @@ exports.Quiz = Quiz;
 sequelize.sync().success(function(){
 	Quiz.count().success(function(count){
 		if(count === 0) {
-			Quiz.create ({pregunta:'Capital de Italia',respuesta:'Roma'}).success(function(){console.log('Base de datos inicializada')});
+			Quiz.create ({pregunta:'Capital de España',respuesta:'Madrid'}).success(function(){console.log('Base de datos inicializada')});
 		};
 	});
 

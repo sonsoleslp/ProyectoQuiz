@@ -1,6 +1,6 @@
 var models = require('../models/models.js');
 
-
+// LOAD
 exports.load = function(req,res,next,quizId) {
 	models.Quiz.find(quizId).then(
 			function(quiz) {
@@ -10,6 +10,8 @@ exports.load = function(req,res,next,quizId) {
 			}).catch(function(error){next(error);});
 };
 
+
+// GET /quizes
 exports.index = function(req,res){
 	console.log(req.query.search);
 	var buscar =req.query.search ;
@@ -47,4 +49,22 @@ exports.answer = function(req,res){
 	})
 };
 
+
+// GET /quizes/new
+exports.new = function (req,res) {
+	var quiz = models.Quiz.build(
+		{pregunta: "Pregunta", respuesta: "Respuesta"});
+		
+	res.render('quizes/new', {quiz: quiz});
+};
+
+ 
+//POST /quizes/create
+exports.create = function(req,res) {
+
+	var quiz = models.Quiz.build(req.body.quiz);
+	quiz.save({fields: ["pregunta","respuesta"]}).then(function(){
+		res.redirect('/quizes');
+	})
+};
 

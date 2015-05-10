@@ -1,0 +1,45 @@
+	
+	#tfnewsearch{
+		float:center;
+		padding:20px;
+	}
+	.tftextinput{
+		margin-top: 10px;
+		margin: 0;
+		padding: 5px 15px;
+		outline:none;
+		font-size:14px;
+		border:1px solid #E5012C; border-right:0px;
+		border-top-left-radius: 5px 5px;
+		border-bottom-left-radius: 5px 5px;
+	}
+	.tfbutton {
+		margin: 0;
+		padding: 5px 15px;
+		
+		font-size:14px;
+		outline: none;
+		cursor: pointer;
+		text-align: center;
+		text-decoration: none;
+		color: #ffffff;
+		border: solid 1px #E5012C; border-right:0px;
+		background: #0095cd;
+		background: -webkit-gradient(linear, left top, left bottom, from( #E5012C), to(#e7274b));
+		background: -moz-linear-gradient(top,  #E5012C,  #e7274b);
+		border-top-right-radius: 5px 5px;
+		border-bottom-right-radius: 5px 5px;
+	}
+	.tfbutton:hover {
+		text-decoration: none;
+		background: #007ead;
+		background: -webkit-gradient(linear, left top, left bottom, from(#e7274b), to(#E5012C));
+		background: -moz-linear-gradient(top,  #e7274b,  #E5012C);
+	}
+	/* Fixes submit button height problem in Firefox */
+	.tfbutton::-moz-focus-inner {
+	  border: 0;
+	}
+	.tfclear{
+		clear:both;
+	}

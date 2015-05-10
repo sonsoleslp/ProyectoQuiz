@@ -2,12 +2,18 @@
 <html>
 	<head>
 		<meta charset="utf-8"><title>Quiz</title>
+
 	</head>
 	<body>	
+	
+		<form align="center" id="tfnewsearch" method="get" action="/quizes">
+		        <input type="text" class="tftextinput" name="search" size="21" maxlength="120"><input type="submit" value="search" class="tfbutton">
+		</form>
 
-		<table>
+
+		<table align="center">
     	<% var i; for (i=0; i < quizes.length; i++) { %> 
-    	<tr><td id="preg"><a href="quizes/<%= quizes[i].id %>"><%= quizes[i].pregunta %></a></td></tr> <% } %>
+    	<tr><td ><a id="preg" href="quizes/<%= quizes[i].id %>"><%= quizes[i].pregunta %></a></td></tr> <% } %>
     </table>
 
 		

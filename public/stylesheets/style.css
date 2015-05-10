@@ -4,6 +4,9 @@
   font-weight: 400;
   src: local('Karla'), local('Karla-Regular'), url(https://fonts.gstatic.com/s/karla/v5/Zi_e6rBgGqv33BWF8WTq8g.woff2) format('woff2'), url(https://fonts.gstatic.com/s/karla/v5/azR40LUJrT4HaWK28zHmVA.woff) format('woff');
 }
+html{
+  font: 14px 'Karla', "Lucida Grande", Helvetica, Arial, sans-serif;
+}
 body {
 
   font: 14px 'Karla', "Lucida Grande", Helvetica, Arial, sans-serif;
@@ -24,9 +27,9 @@ div{
 	 padding: 18px;
 }
 
-table{
+form, input{
+    font: 14px 'Karla', "Lucida Grande", Helvetica, Arial, sans-serif;
 
- 
 }
 
 input{
@@ -88,4 +91,8 @@ span{
 #preg:hover{
   font-weight: bolder;
 
+}
+#pregunta_title{
+  color:#202020;
+  font-weight: bolder;
 }

@@ -29,13 +29,13 @@ div{
 
 form, input{
     font: 14px 'Karla', "Lucida Grande", Helvetica, Arial, sans-serif;
-
-}
-
-input{
   outline:none;
 }
 
+
+
+input:hover{
+  font-weight:normal;
 
 }
 
@@ -88,7 +88,7 @@ span{
 #bar:hover{
   color:#BEBEBE;
 }
-#preg:hover{
+#pregu:hover{
   font-weight: bolder;
 
 }
@@ -96,3 +96,50 @@ span{
   color:#202020;
   font-weight: bolder;
 }
+
+
+
+ span {
+  margin: 0px 10px 0px 0px;
+}
+
+#ErrorMsgs {
+  color:#f61; font-size:smaller;
+}
+
+
+
+
+
+button,#sss{
+    margin: 0;
+    padding: 5px 15px;
+    font-weight: normal;
+    font-size:14px;
+    outline: none;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    color: #ffffff;
+    border: solid 1px #E5012C; border-right:0px;
+    background: #0095cd;
+    background: -webkit-gradient(linear, left top, left bottom, from( #E5012C), to(#e7274b));
+    background: -moz-linear-gradient(top,  #E5012C,  #e7274b);
+    border-radius: 5px 5px;
+}
+   
+  button:hover,#sss:hover {
+    text-decoration: none;
+    background: #007ead;
+    background: -webkit-gradient(linear, left top, left bottom, from(#e7274b), to(#E5012C));
+    background: -moz-linear-gradient(top,  #e7274b,  #E5012C);
+  }
+  /* Fixes submit button height problem in Firefox */
+  button,#sss::-moz-focus-inner {
+    border: 0;
+  }
+
+  #borrar{
+    white-space: nowrap;
+    display:inline;
+  }

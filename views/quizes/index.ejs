@@ -15,7 +15,16 @@
 	
     	<% var i; if (quizes.length==0) { %> No hay resultados 
     	<%} for (i=0; i < quizes.length; i++) { %> 
-    	<tr><td ><a id="preg" href="quizes/<%= quizes[i].id %>"><%= quizes[i].pregunta %></a></td></tr> <% } %>
+    	<tr><td >
+		<span style="white-space: nowrap">
+		<a id="pregu" href="quizes/<%= quizes[i].id %>"><%= quizes[i].pregunta %></a>   
+    	<a href="quizes/<%= quizes[i].id %>/edit"><img src="/images/edit.png"></a><nobr>
+    	<form method="post" id="borrar" action="quizes/<%= quizes[i].id %>?_method=delete"><input type ="image" src="/images/delete.png" onClick='return confirm("Borrar: <% quizes[i].pregunta %>");'>
+		</form></nobr>
+</span>
+
+
+    	</td></tr> <% } %>
     </table>
     <p>
     <a href ="/quizes/new"><button type="button">Crear pregunta</button></a>

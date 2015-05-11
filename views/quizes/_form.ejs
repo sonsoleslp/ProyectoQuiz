@@ -3,4 +3,4 @@
 <label for ="resp" class="rem">Respuesta:</label>
 <input type="text" id="resp" name="quiz[respuesta]" value="<%=quiz.respuesta %>"/> <p>
 <a href="/quizes"><button id="sss" type="button">Cancelar</button></a>
-<input  id= "sss" type="submit" value="Salvar">
+<button  id= "sss" onclick="this.disabled=true; this.form.submit();" value="Salvar">Salvar</button>

@@ -19,7 +19,8 @@
 		<span style="white-space: nowrap">
 		<a id="pregu" href="quizes/<%= quizes[i].id %>"><%= quizes[i].pregunta %></a>   
     	<a href="quizes/<%= quizes[i].id %>/edit"><img src="/images/edit.png"></a><nobr>
-    	<form method="post" id="borrar" action="quizes/<%= quizes[i].id %>?_method=delete"><input type ="image" src="/images/delete.png" onClick='return confirm("Borrar: <% quizes[i].pregunta %>");'>
+    	<form method="post" id="borrar" action="quizes/<%= quizes[i].id %>?_method=delete">
+    	<input type ="image" src="/images/delete.png" onClick='return confirm(" ¿Eliminar esta pregunta? <% quizes[i].pregunta %>");'>
 		</form></nobr>
 </span>
 

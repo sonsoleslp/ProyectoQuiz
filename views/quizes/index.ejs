@@ -17,19 +17,21 @@
     	<%} for (i=0; i < quizes.length; i++) { %> 
     	<tr><td >
 		<span style="white-space: nowrap">
-		<a id="pregu" href="quizes/<%= quizes[i].id %>"><%= quizes[i].pregunta %></a>   
+		<a id="pregu" href="quizes/<%= quizes[i].id %>"><%= quizes[i].pregunta %></a>
+		<%if(session.user)  {%>
     	<a href="quizes/<%= quizes[i].id %>/edit"><img src="/images/edit.png"></a><nobr>
     	<form method="post" id="borrar" action="quizes/<%= quizes[i].id %>?_method=delete">
     	<input type ="image" src="/images/delete.png" onClick='return confirm(" ¿Eliminar esta pregunta? <% quizes[i].pregunta %>");'>
 		</form></nobr>
 </span>
 
-
+		<%}%>
     	</td></tr> <% } %>
     </table>
     <p>
-    <a href ="/quizes/new"><button type="button">Crear pregunta</button></a>
-
+    <%if(session.user)  {%>
+    	<a href ="/quizes/new"><button type="button">Crear pregunta</button></a>
+	<%}%>
 		
 	</body>
 </html>

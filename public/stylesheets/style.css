@@ -30,7 +30,9 @@ div{
 form, input{
     font: 14px 'Karla', "Lucida Grande", Helvetica, Arial, sans-serif;
   outline:none;
+  background-color: white;
 }
+
 
 
 

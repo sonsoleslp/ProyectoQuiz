@@ -17,15 +17,12 @@ exports.load = function(req,res,next,quizId) {
 // GET /quizes
 exports.index = function(req,res){
 	
-	
-
-	if (req.query.search== undefined){
-
+	if (req.query.search == undefined){
 		models.Quiz.findAll().then(function(quizes){
-			res.render('quizes/index.ejs',{quizes: quizes, errors:[]}).catch(function(error){next(error)});
-		
-		})
+			res.render('quizes/index.ejs',{quizes: quizes, errors:[]});
+		});
 	}else{
+			
 		console.log(req.query.search);
 		var search= '%' +(String(req.query.search)).replace(/\s/g,"%")+'%';
 		models.Quiz.findAll({where: ["pregunta like ?",search], order: ['pregunta']}).then(function(quizes){
@@ -59,7 +56,6 @@ exports.answer = function(req,res){
 exports.new = function (req,res) {
 	var quiz = models.Quiz.build(
 		{pregunta: "Pregunta", respuesta: "Respuesta"});
-		
 	res.render('quizes/new', {quiz: quiz, errors: []});
 };
 
@@ -101,9 +97,9 @@ exports.update = function(req,res) {
 	});
 };
 exports.destroy = function(req,res){
-	req.quiz.destroy().then(function(){
-		res.redirect('/quizes');
-		}).catch(function(error){next(error)});
+	req.quiz.destroy()
+	.then(function(){res.redirect('/quizes');
+	}).catch(function(error){next(error);});
 
 	};
 

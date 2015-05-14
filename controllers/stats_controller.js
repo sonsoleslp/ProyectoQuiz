@@ -40,10 +40,9 @@ function preguntassin(q,c){
 
 // GET /quizes/statistics
 exports.show = function(req,res){
-
+	console.log("DONE");
 	models.Quiz.findAll().then(function(quizes){
 
-		
 		models.Comment.findAll({where: ["publicado like ?",1]}).then(function(coment){
 			if(coment ==undefined) coment = [];
 			if(quizes == undefined ) quizes = [];

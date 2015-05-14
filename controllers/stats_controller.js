@@ -14,20 +14,12 @@ function avg(q,c){
 }
 
 function preguntassin(q,c){ 
-	var preg=[];console.log(preg[0]);
-	console.log("q "+q.length);
-	console.log("c "+c.length);
-
+	var preg=[];
 	for (var i =0; i<c.length; i++){
-		console.log("i "+i);console.log("content"+c[i].texto);
-		console.log("quizid"+c[i].QuizId);
-
 		if(preg[c[i].QuizId]) preg[c[i].QuizId]+=1;
 		else preg[c[i].QuizId]=1;
-
 		}
-		console.log(preg.length);
-		console.log(q.length);
+
 		llenas=0;
 	for(var k = 0; k<preg.length; k++){
 		if(preg[k]) llenas++;
@@ -40,10 +32,10 @@ function preguntassin(q,c){
 
 // GET /quizes/statistics
 exports.show = function(req,res){
-	console.log("DONE");
+
 	models.Quiz.findAll().then(function(quizes){
 
-		models.Comment.findAll({where: ["publicado like ?",1]}).then(function(coment){
+		models.Comment.findAll({where: {publicado: true}}).then(function(coment){
 			if(coment ==undefined) coment = [];
 			if(quizes == undefined ) quizes = [];
 			var sin= preguntassin(quizes,coment);

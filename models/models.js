@@ -19,41 +19,54 @@ var sequelize = new Sequelize(DB_name,user,pwd,
  	  storage:storage,
  	  omitNull:true
  	 });
+
+//Importar definición de la tabla Quiz
 var quiz_path = path.join(__dirname,'quiz');
 var Quiz = sequelize.import(quiz_path);
 
+//Importar definición de la tabla Comment
 var comment_path= path.join(__dirname, 'comment');
 var Comment = sequelize.import(comment_path);
+
+//Importar definición de la tabla de usuarios
+var user_path = path.join(__dirname, 'user');
+var User = sequelize.import(user_path);
+
+
 Comment.belongsTo(Quiz);
 Quiz.hasMany(Comment);
+//los quizes pertenecen a un usuario registrado
+Quiz.belongsTo(User);
+User.hasMany(Quiz);
 
 
+// exportar tablas
 exports.Quiz = Quiz;
 exports.Comment = Comment;
+exports.User = User;
 sequelize.sync().then(function(){
-	Quiz.count().then(function(count){
-		if(count === 0) {
-			Quiz.create ({
-				pregunta:'Capital de Italia',
-				respuesta:'Roma'
+	User.count().then(function(count){//////})
+		if(count===0){console.log('aqui');
+			User.bulkCreate(
+				[ {username: 'admin', password:'1234', isAdmin: true},
+				  {username: 'pepe', password:'5678'}
+				  ]
+				
+
+			).then(function(){
+			
+				console.log('Base de datos(tabla user) inicializada');
+				Quiz.count().then(function(count){
+				if(count === 0) {
+					Quiz.bulkCreate(
+					[{pregunta:'Capital de Italia',	respuesta:'Roma', UserId:2},
+				     {pregunta:'Capital de Portugal',respuesta:'Lisboa', UserId:2},
+				     {pregunta:'Capital de España',	respuesta:'Madrid', UserId:2}				     
+					]
+					).then(function(){console.log('Base de datos (tabla quiz) inicializada')});
+					};
+				});
 			});
-			Quiz.create ({
-				pregunta:'Capital de España',
-				respuesta:'Madrid'
-			});
-			Quiz.create ({
-				pregunta:'Capital de Francia',
-				respuesta:'París'
-			});
-			Quiz.create ({
-				pregunta:'Capital de Alemania',
-				respuesta:'Berlín'
-			});			
-			Quiz.create ({
-				pregunta:'Capital de Portugal',
-				respuesta:'Lisboa'
-			}).then(function(){console.log('Base de datos inicializada')});
 		};
 	});
-
 });

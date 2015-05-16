@@ -12,10 +12,10 @@ router.get('/', function(req, res) {
   res.render('index', { title: 'Quiz', errors: []});
 });
 //Autoload de comandos con :quizId
-router.param('UserId',		userController.load);
+
 router.param('quizId', 		quizController.load);
 router.param('commentId', 	commentController.load);
-
+router.param('userId',		userController.load);
 
 
 //Definición de rutas de sesión

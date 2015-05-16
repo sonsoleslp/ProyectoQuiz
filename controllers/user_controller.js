@@ -69,7 +69,7 @@ exports.update = function(req,res,next){
 				res.render('user/',req.user.id,{user:req.user,errors:err.errors});
 			} else {
 				req.user
-				.save({fields: ["username","password"]})
+				.save({fields: ['username','password']})
 				.then(function(){res.redirect('/');});
 			}
 		}).catch(function(error){next(error)});

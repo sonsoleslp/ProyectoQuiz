@@ -51,6 +51,7 @@ app.use(function(req,res,next){
 
     next();
 });
+
 app.use('/', routes);
 //Logout automático
 app.use(function(req,res,next){

@@ -2,6 +2,7 @@ var models = require('../models/models.js');
 
 
 exports.ownershipRequired = function(req,res,next){
+	console.log("entra commetn");
 	models.Quiz.find({
 		where: {id: Number(req.comment.QuizId)}
 	}).then(function(quiz){

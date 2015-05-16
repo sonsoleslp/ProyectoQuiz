@@ -32,6 +32,9 @@
       <nav class = "main" id="n1" role="navigation">
         <span><a id="bar" href="/">Inicio</a></span>
         <span><a id="bar" href ="/quizes">Preguntas</a></span>
+        <%if(session.user){%>
+          <span><a id="bar" href="/user/<%=session.user.id%>/quizes">Mis preguntas</a></span>
+        <%}%>
             <span><a id="bar" href="https://github.com/sonsoleslp/ProyectoQuiz">GITHUB</a></span>
             <span><a id="bar" href="/author">Créditos</a></span>                
            <span><a id="bar" href="/quizes/statistics">Estadísticas</a></span> 

@@ -3,31 +3,39 @@ var models = require('../models/models.js');
 //Si autenticación falla o hay errores se ejecuta callback(error)
 
 
-exports.ownershipRequired = function(req,res,next){
-	var objUser = req.user.id;
-	var logUser = req.session.user.id;
-	var isAdmin = req.session.user.isAdmin;
 
-	if(isAdmin ||objUser === logUser){
+
+exports.ownershipRequired = function(req,res,next){
+		console.log("entra user");
+	var objUser = req.user.id;
+	console.log("objuser ok");
+	var logUser = req.session.user.id;
+	console.log("loguser ok");
+	var isAdmin = req.session.user.isAdmin;
+	console.log("isadmin ok");
+	if(isAdmin || objUser === logUser){
+		console.log("next user");
 		next();
 	}else{
+		console.log("redirect user");
 		res.redirect('/');
 	}
 };
 
-
-
 //Autoload: userId
 exports.load = function(req,res,next,userId){
+	console.log("usercontroller load");
 	models.User.find({where:{ id:Number(userId)}})
 	.then(function(user){
 		if(user){
-			req.user=user;
+			req.user = user;
+			console.log("asignacion");
 			next();
 		} else {next(new Error('No existe userId=' + userId))}
 
-	}).catch(function(error){next(error)});
+	}).catch(function(error){console.log("ha fallado en userload");next(error)});
 };
+
 
 
 
@@ -44,10 +52,12 @@ exports.autenticar = function(login, password, callback){
 };
 
 exports.edit = function(req,res){
+	console.log("edit user");
 	res.render('user/edit', {user:req.user, errors:[]});
 };
 
 exports.update = function(req,res,next){
+	console.log("update user");
 	req.user.username = req.body.user.username;
 	req.user.password = req.body.user.password;
 
@@ -83,7 +93,7 @@ exports.create = function(req,res){
 				res.render('user/new',{user:user,errors:err.errors});
 			}else{
 				user
-				.save({fields:["username","password"]})
+				.save({fields:['username','password']})
 				.then(function(){
 					req.session.user = {id:user.id, username:user.username};
 					res.redirect('/');

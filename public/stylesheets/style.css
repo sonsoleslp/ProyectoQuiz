@@ -28,7 +28,7 @@ div{
 }
 
 form, input{
-    font: 14px 'Karla', "Lucida Grande", Helvetica, Arial, sans-serif;
+    font: normal 'Karla', "Lucida Grande", Helvetica, Arial, sans-serif;
   outline:none;
   background-color: white;
 }
@@ -42,7 +42,7 @@ input:hover{
 }
 
 span.right{
-  position:fixed;
+  position:absolute;
   top:0;
   right:0;
 	margin:5px;
@@ -87,7 +87,7 @@ span{
 }
 
 #bar{
-  font-size: 16px;
+  font-size:inherit;
 }
 #bar:hover{
   color:#BEBEBE;
@@ -119,7 +119,7 @@ button,#sss{
     margin: 0;
     padding: 5px 15px;
     font-weight: normal;
-    font-size:14px;
+  
     outline: none;
     cursor: pointer;
     text-align: center;

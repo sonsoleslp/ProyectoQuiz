@@ -1,7 +1,14 @@
-body, nav {background:#333;}
-#page-wrap:after {content:"Smartphone Layout";}
 
 
+#bar{
+display:block;
+}
+
+form{
+	background-color: none; width: inherit;
+}
 h2 span, section h3 {display: none;}
 body {font-size: xx-large;}
-footer, input {font-size:large;}
+footer, input, button {font-size:x-large; width: inherit;}
+.quiz_img{float:none;}
+#page-wrap:after {content:"Smartphone Layout"; font-size: small; color:grey;}

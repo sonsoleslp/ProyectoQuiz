@@ -34,16 +34,16 @@ exports.load = function(req,res,next,quizId) {
 
 // GET /quizes
 exports.index = function(req,res){
-/*		var options = {};
+		var options = {};
 
 	if(req.user){
 		options.where = {UserId: req.user.id}
 	};
-	models.Quiz.findAll(options).then(function(quizes){
-			res.render('quizes/index.ejs',{quizes: quizes, errors:[]});
-		});*/
-if (req.query.search == undefined){
-		models.Quiz.findAll().then(function(quizes){
+//	models.Quiz.findAll(options).then(function(quizes){
+//			res.render('quizes/index.ejs',{quizes: quizes, errors:[]});
+
+	if (req.query.search == undefined){
+		models.Quiz.findAll(options).then(function(quizes){
 			res.render('quizes/index.ejs',{quizes: quizes, errors:[]});
 		});
 	}else{
@@ -100,7 +100,7 @@ exports.create = function(req,res) {
 			res.render('quizes/new', {quiz:quiz, errors:err.errors});
 
 		} else {
-			quiz.save({fields: ['pregunta','respuesta','UserId','image']})
+			quiz.save({fields: ["pregunta","respuesta","UserId","image"]})
 			.then(function(){res.redirect('/quizes')})}
 		
 	}).catch(function(error){next(error)});

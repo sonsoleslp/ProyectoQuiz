@@ -13,7 +13,7 @@ function avg(q,c){
 	return c.length/q.length;
 }
 
-function preguntassin(q,c){ 
+function preguntassin(q,c){ ///////////////////////////////////////////////////////7
 	var preg=[];
 	for (var i =0; i<c.length; i++){
 		if(preg[c[i].QuizId]) preg[c[i].QuizId]+=1;
@@ -33,7 +33,7 @@ function preguntassin(q,c){
 // GET /quizes/statistics
 exports.show = function(req,res){
 
-	models.Quiz.findAll().then(function(quizes){
+	/*models.Quiz.findAll().then(function(quizes){
 
 		models.Comment.findAll({where: {publicado: true}}).then(function(coment){
 			if(coment ==undefined) coment = [];
@@ -50,7 +50,10 @@ exports.show = function(req,res){
 				errors:[]});})
 
 			
-		});
+		});*/
+
+
+
 
 
 

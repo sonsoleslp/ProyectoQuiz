@@ -15,9 +15,7 @@ body {
 
 a {
 
-  color: #E50142;
-  text-decoration: none;
-
+  
   color: #E5012C;
   text-decoration: none;
 }
@@ -115,7 +113,7 @@ span{
 
 
 
-button,#sss{
+button,#sss,input.file{
     margin: 0;
     padding: 5px 15px;
     font-weight: normal;
@@ -132,14 +130,14 @@ button,#sss{
     border-radius: 5px 5px;
 }
    
-  button:hover,#sss:hover {
+  button:hover,#sss:hover,input.file:hover {
     text-decoration: none;
     background: #007ead;
     background: -webkit-gradient(linear, left top, left bottom, from(#e7274b), to(#E5012C));
     background: -moz-linear-gradient(top,  #e7274b,  #E5012C);
   }
   /* Fixes submit button height problem in Firefox */
-  button,#sss::-moz-focus-inner {
+  button,#sss,input.file::-moz-focus-inner {
     border: 0;
   }
 

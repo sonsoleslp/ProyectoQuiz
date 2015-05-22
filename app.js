@@ -53,6 +53,7 @@ app.use(function(req,res,next){
 });
 
 app.use('/', routes);
+
 //Logout automático
 app.use(function(req,res,next){
     if (req.session.user){

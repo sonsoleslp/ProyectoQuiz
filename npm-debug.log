@@ -2,67 +2,91 @@
 1 verbose cli [ 'c:\\Program Files\\nodejs\\node.exe',
 1 verbose cli   'c:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
 1 verbose cli   'install',
-1 verbose cli   'foreman@2.7.1' ]
+1 verbose cli   'jquery.easy-pie-chart' ]
 2 info using npm@2.7.4
 3 info using node@v0.12.2
-4 warn package.json node@0.0.0 No description
-5 warn package.json node@0.0.0 No repository field.
-6 warn package.json node@0.0.0 No README data
-7 warn package.json nodejs@0.0.0 No description
-8 warn package.json nodejs@0.0.0 No repository field.
-9 warn package.json nodejs@0.0.0 No README data
-10 warn package.json node.js@0.0.0 No repository field.
-11 silly cache add args [ 'foreman@2.7.1', null ]
-12 verbose cache add spec foreman@2.7.1
-13 silly cache add parsed spec { raw: 'foreman@2.7.1',
+4 warn package.json nodejs@0.0.0 No description
+5 warn package.json nodejs@0.0.0 No repository field.
+6 warn package.json nodejs@0.0.0 No README data
+7 warn package.json node@0.0.0 No description
+8 warn package.json node@0.0.0 No repository field.
+9 warn package.json openssl@0.1.0 No repository field.
+10 warn package.json crypto@0.0.3 crypto is also the name of a node core module.
+11 silly cache add args [ 'jquery.easy-pie-chart', null ]
+12 verbose cache add spec jquery.easy-pie-chart
+13 silly cache add parsed spec { raw: 'jquery.easy-pie-chart',
 13 silly cache add   scope: null,
-13 silly cache add   name: 'foreman',
-13 silly cache add   rawSpec: '2.7.1',
-13 silly cache add   spec: '2.7.1',
-13 silly cache add   type: 'version' }
-14 verbose addNamed foreman@2.7.1
-15 silly addNamed semver.valid 2.7.1
-16 silly addNamed semver.validRange 2.7.1
-17 silly mapToRegistry name foreman
-18 silly mapToRegistry using default registry
-19 silly mapToRegistry registry https://registry.npmjs.org/
-20 silly mapToRegistry uri https://registry.npmjs.org/foreman
-21 verbose addNameVersion registry:https://registry.npmjs.org/foreman not in flight; fetching
-22 verbose request uri https://registry.npmjs.org/foreman
-23 verbose request no auth needed
-24 info attempt registry request try #1 at 22:31:22
-25 verbose request id 6558cfc53e214991
-26 verbose etag "9GUUWZOW3Y203MQ8J7JAHPZ86"
-27 http request GET https://registry.npmjs.org/foreman
-28 http 304 https://registry.npmjs.org/foreman
-29 silly get cb [ 304,
-29 silly get   { date: 'Wed, 06 May 2015 20:31:26 GMT',
-29 silly get     via: '1.1 varnish',
-29 silly get     'last-modified': 'Wed, 06 May 2015 20:31:26 GMT',
-29 silly get     'cache-control': 'max-age=60',
-29 silly get     etag: '"9GUUWZOW3Y203MQ8J7JAHPZ86"',
-29 silly get     age: '14',
-29 silly get     connection: 'keep-alive',
-29 silly get     'x-served-by': 'cache-lhr6335-LHR',
-29 silly get     'x-cache': 'HIT',
-29 silly get     'x-cache-hits': '1',
-29 silly get     'x-timer': 'S1430944286.297524,VS0,VE1',
-29 silly get     vary: 'Accept' } ]
-30 verbose etag https://registry.npmjs.org/foreman from cache
-31 verbose get saving foreman to C:\Users\Sonsoles\AppData\Roaming\npm-cache\registry.npmjs.org\foreman\.cache.json
-32 verbose stack Error: version not found: foreman@2.7.1
-32 verbose stack     at setData (c:\Program Files\nodejs\node_modules\npm\lib\cache\add-named.js:122:12)
-32 verbose stack     at RES (c:\Program Files\nodejs\node_modules\npm\node_modules\inflight\inflight.js:23:14)
-32 verbose stack     at f (c:\Program Files\nodejs\node_modules\npm\node_modules\once\once.js:17:25)
-32 verbose stack     at saved (c:\Program Files\nodejs\node_modules\npm\lib\cache\caching-client.js:173:7)
-32 verbose stack     at FSReqWrap.oncomplete (fs.js:95:15)
-33 verbose statusCode 404
-34 verbose cwd C:\Users\Sonsoles\Documents\UNIVERSIDAD\3\S2\COMPUTACIÓN EN RED\Prácticas\ProyectoQuiz\quiz
+13 silly cache add   name: 'jquery.easy-pie-chart',
+13 silly cache add   rawSpec: '',
+13 silly cache add   spec: '*',
+13 silly cache add   type: 'range' }
+14 verbose addNamed jquery.easy-pie-chart@*
+15 silly addNamed semver.valid null
+16 silly addNamed semver.validRange *
+17 silly addNameRange { name: 'jquery.easy-pie-chart', range: '*', hasData: false }
+18 silly mapToRegistry name jquery.easy-pie-chart
+19 silly mapToRegistry using default registry
+20 silly mapToRegistry registry https://registry.npmjs.org/
+21 silly mapToRegistry uri https://registry.npmjs.org/jquery.easy-pie-chart
+22 verbose addNameRange registry:https://registry.npmjs.org/jquery.easy-pie-chart not in flight; fetching
+23 verbose request uri https://registry.npmjs.org/jquery.easy-pie-chart
+24 verbose request no auth needed
+25 info attempt registry request try #1 at 19:35:44
+26 verbose request id 42edf2ba3ae7e0fe
+27 http request GET https://registry.npmjs.org/jquery.easy-pie-chart
+28 http 404 https://registry.npmjs.org/jquery.easy-pie-chart
+29 verbose headers { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+29 verbose headers   'content-type': 'application/json',
+29 verbose headers   'cache-control': 'max-age=0',
+29 verbose headers   'content-length': '51',
+29 verbose headers   'accept-ranges': 'bytes',
+29 verbose headers   date: 'Fri, 22 May 2015 17:35:47 GMT',
+29 verbose headers   via: '1.1 varnish',
+29 verbose headers   age: '0',
+29 verbose headers   connection: 'keep-alive',
+29 verbose headers   'x-served-by': 'cache-lcy1127-LCY',
+29 verbose headers   'x-cache': 'MISS',
+29 verbose headers   'x-cache-hits': '0',
+29 verbose headers   'x-timer': 'S1432316147.432226,VS0,VE358' }
+30 silly get cb [ 404,
+30 silly get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+30 silly get     'content-type': 'application/json',
+30 silly get     'cache-control': 'max-age=0',
+30 silly get     'content-length': '51',
+30 silly get     'accept-ranges': 'bytes',
+30 silly get     date: 'Fri, 22 May 2015 17:35:47 GMT',
+30 silly get     via: '1.1 varnish',
+30 silly get     age: '0',
+30 silly get     connection: 'keep-alive',
+30 silly get     'x-served-by': 'cache-lcy1127-LCY',
+30 silly get     'x-cache': 'MISS',
+30 silly get     'x-cache-hits': '0',
+30 silly get     'x-timer': 'S1432316147.432226,VS0,VE358' } ]
+31 verbose stack Error: 404 Not Found: jquery.easy-pie-chart
+31 verbose stack     at CachingRegistryClient.<anonymous> (c:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:245:14)
+31 verbose stack     at Request._callback (c:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:170:14)
+31 verbose stack     at Request.self.callback (c:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:344:22)
+31 verbose stack     at Request.emit (events.js:110:17)
+31 verbose stack     at Request.<anonymous> (c:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:1239:14)
+31 verbose stack     at Request.emit (events.js:129:20)
+31 verbose stack     at IncomingMessage.<anonymous> (c:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:1187:12)
+31 verbose stack     at IncomingMessage.emit (events.js:129:20)
+31 verbose stack     at _stream_readable.js:908:16
+31 verbose stack     at process._tickCallback (node.js:355:11)
+32 verbose statusCode 404
+33 verbose pkgid jquery.easy-pie-chart
+34 verbose cwd C:\SPB_Data\ProyectoQuiz\quiz
 35 error Windows_NT 6.3.9600
-36 error argv "c:\\Program Files\\nodejs\\node.exe" "c:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "foreman@2.7.1"
+36 error argv "c:\\Program Files\\nodejs\\node.exe" "c:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "jquery.easy-pie-chart"
 37 error node v0.12.2
 38 error npm  v2.7.4
-39 error version not found: foreman@2.7.1
-40 error If you need help, you may report this error at:
-40 error     <https://github.com/npm/npm/issues>
+39 error code E404
+40 error 404 Not Found: jquery.easy-pie-chart
+40 error 404
+40 error 404 'jquery.easy-pie-chart' is not in the npm registry.
+40 error 404 You should bug the author to publish it (or use the name yourself!)
+40 error 404 It was specified as a dependency of 'quiz'
+40 error 404
+40 error 404 Note that you can also install from a
+40 error 404 tarball, folder, http url, or git url.
 41 verbose exit [ 1, true ]

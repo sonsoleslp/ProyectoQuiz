@@ -8,6 +8,23 @@
 		<input id = "sss" type = "submit" value="Enviar"> 
 		
 </form>
+<p>
+
+<% if(session.user){
+	if(quiz.isFav) {%>
+	<form method="post" id="borrar" action="/user/<%= session.user.id %>/favourites/<%= quiz.id %>?_method=delete">
+	<input type ="image" src="/images/fav.png" onClick='return confirm(" ¿Eliminar esta pregunta de favoritos? ");'>
+	</form>	
+	<% }else{ %>
+	<form method="post" id="borrar" action="/user/<%= session.user.id %>/favourites/<%= quiz.id %>?_method=put">
+	<input type ="image" src="/images/nofav.png" onClick='return confirm("¿Añadir esta pregunta a favoritos? ");'>
+	</form>
+
+<%}}%>
+
+</p>
+
+
 
 <p><a  href="/quizes/<%=quiz.id %>/comments/new"><button>Nuevo comentario</button></a></p>
 

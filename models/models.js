@@ -33,17 +33,21 @@ var user_path = path.join(__dirname, 'user');
 var User = sequelize.import(user_path);
 
 
-Comment.belongsTo(Quiz);
-Quiz.hasMany(Comment);
+
 //los quizes pertenecen a un usuario registrado
 Quiz.belongsTo(User);
 User.hasMany(Quiz);
-
-
+User.belongsToMany(Quiz, {through: 'Favourites', as:"Favourites" });
+Quiz.belongsToMany(User, {through: 'Favourites', as: "Fans" });
+Comment.belongsTo(Quiz);
+Quiz.hasMany(Comment);
 // exportar tablas
 exports.Quiz = Quiz;
 exports.Comment = Comment;
 exports.User = User;
+
+
+
 sequelize.sync().then(function(){
 	User.count().then(function(count){//////})
 		if(count===0){console.log('aqui');

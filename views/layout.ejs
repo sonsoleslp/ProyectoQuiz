@@ -17,14 +17,14 @@
 
       <%if(!session.user){%>
       <span class="right">  
-         <a href="/user">Sign up</a>
-       -  <a href="/login"> Login</a>
+         <a href="/user"><img src="/images/adduser.png"></a>
+         <a href="/login"><img src="/images/session.png"></a>
         </span>
       <%}else{%>
       <span class="right">
-        <%= session.user.username %>
-        - <a href="/user/<%=session.user.id%>/edit">Settings</a>  
-        - <a href="/logout"> Logout</a>
+        <%= session.user.username  %>  
+           <a href="/user/<%=session.user.id%>/edit"><img src="/images/settings.png"></a>  
+           <a href="/logout"> <img src="/images/session.png"></a>
       </span>
       <%}%>
       <h2><img src="/images/QUIZ.gif"</h2>
@@ -34,11 +34,14 @@
         <span><a id="bar" href="/">Inicio</a></span>
         <span><a id="bar" href ="/quizes">Preguntas</a></span>
         <%if(session.user){%>
-          <span><a id="bar" href="/user/<%=session.user.id%>/quizes">Mis preguntas</a></span>
-        <%}%>
-            <span><a id="bar" href="https://github.com/sonsoleslp/ProyectoQuiz">GITHUB</a></span>
-            <span><a id="bar" href="/author">Créditos</a></span>                
-           <span><a id="bar" href="/quizes/statistics">Estadísticas</a></span> 
+          <span><a id="bar" href="/user/<%=session.user.id%>/quizes">Mis preguntas</a></span> 
+          <span><a id="bar" href="/user/<%=session.user.id%>/favourites">Favoritos</a></span> <%}%>
+          <span><a id="bar" href="/quizes/statistics">Estadísticas</a></span> 
+          <span><a id="bar" href="/author">Créditos</a></span>         
+          <span><a id="bar" href="https://github.com/sonsoleslp/ProyectoQuiz">GITHUB</a></span>
+        
+           
+ 
         </nav>
       
      <p></p>

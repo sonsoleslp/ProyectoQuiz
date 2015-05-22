@@ -111,8 +111,8 @@ exports.show = function (req,res){///////////////////////
 	    //	if(req.user){
 			if (req.session.user) {
 				quizes.forEach(function(quiz) {
-					quiz.isFav = quiz.Fans.some(function(fan) {return fan.id == req.session.user.id});
-					res.render('quizes/show',{quiz: quiz, errors:[]});
+					req.quiz.isFav = quiz.Fans.some(function(fan) {return fan.id == req.session.user.id});
+					res.render('quizes/show',{quiz: req.quiz, errors:[]});
 				});
 			
 

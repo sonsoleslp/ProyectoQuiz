@@ -7,6 +7,9 @@ display:block;
 form{
 	background-color: none; width: inherit;
 }
+#donutchart{
+	display:none;
+}
 h2 span, section h3 {display: none;}
 body {font-size: xx-large;}
 footer, input, button {font-size:x-large; width: inherit;}

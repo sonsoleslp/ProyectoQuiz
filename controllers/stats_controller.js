@@ -33,7 +33,7 @@ function preguntassin(q,c){ ////////////////////////////////////////////////////
 // GET /quizes/statistics
 exports.show = function(req,res){
 
-	/*models.Quiz.findAll().then(function(quizes){
+	models.Quiz.findAll().then(function(quizes){
 
 		models.Comment.findAll({where: {publicado: true}}).then(function(coment){
 			if(coment ==undefined) coment = [];
@@ -50,10 +50,7 @@ exports.show = function(req,res){
 				errors:[]});})
 
 			
-		});*/
-
-
-
+		});
 
 
 

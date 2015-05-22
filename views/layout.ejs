@@ -17,14 +17,14 @@
 
       <%if(!session.user){%>
       <span class="right">  
-         <a href="/user"><img src="/images/adduser.png"></a>
-         <a href="/login"><img src="/images/session.png"></a>
+         <a href="/user"  title="Sign up"><img src="/images/adduser.png"></a>
+         <a href="/login"  title="Login"><img src="/images/session.png"></a>
         </span>
       <%}else{%>
       <span class="right">
         <%= session.user.username  %>  
-           <a href="/user/<%=session.user.id%>/edit"><img src="/images/settings.png"></a>  
-           <a href="/logout"> <img src="/images/session.png"></a>
+           <a href="/user/<%=session.user.id%>/edit" title="Settings"><img src="/images/settings.png" ></a>  
+           <a href="/logout"  title="Logout"> <img src="/images/session.png"></a>
       </span>
       <%}%>
       <h2><img src="/images/QUIZ.gif"</h2>

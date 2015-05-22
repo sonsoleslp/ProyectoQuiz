@@ -153,3 +153,7 @@ button,#sss,input.file{
     white-space: nowrap;
     display:inline;
   }
+
+ .quiz_img{
+  margin-bottom: 20px;
+ }

@@ -101,7 +101,7 @@ exports.create = function(req,res){
 				res.render('user/new',{user:user,errors:err.errors});
 			}else{
 				user
-				.save({fields:["username","password"]})
+				.save({fields:["username","password", "description","image"]})
 				.then(function(){
 					req.session.user = {id:user.id, username:user.username, description:user.description, image:user.image};
 					res.redirect('/');

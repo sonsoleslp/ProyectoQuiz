@@ -90,7 +90,7 @@ exports.new = function(req,res){
 exports.create = function(req,res){
 	
 	if(req.files.image){
-		req.user.image=req.files.image.name;
+		req.body.user.image=req.files.image.name;
 	}
 	var user = models.User.build(req.body.user);
 	user

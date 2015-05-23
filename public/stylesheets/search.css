@@ -2,6 +2,11 @@
 	#tfnewsearch{
 		float:center;
 		padding:20px;
+		max-width:90%;
+		margin:auto;
+		white-space: none;
+		display:inline;
+
 	}
 	.tftextinput{
 		margin-top: 10px;
@@ -12,6 +17,7 @@
 		border:1px solid #E5012C; border-right:0px;
 		border-top-left-radius: 5px 5px;
 		border-bottom-left-radius: 5px 5px;
+
 	}
 	.tfbutton {
 		margin: 0;

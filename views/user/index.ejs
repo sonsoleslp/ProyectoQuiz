@@ -1,7 +1,12 @@
-
+<h2>Usuarios</h2>
 <table align="center" id="usuarios">
 <% for (i=0; i < users.length; i++) { %> 
-<tr><td><a href="user/<%=users[i].id%>"><img id="prof" src="/media/<%=users[i].image%>"></a>
+<tr><td><a href="user/<%=users[i].id%>"><%if(users[i].image){%>
+<img id="prof" src ="/media/<%= users[i].image %>" >
+<% } else {%>
+<img id="prof" src ="/images/user.png" >
+<%}%>
+</a>
 </td><td><%=users[i].username%></td> </tr>
 <%}%>
 </table>

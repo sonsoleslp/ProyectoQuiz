@@ -27,9 +27,9 @@ router.get('/logout', sessionController.destroy); //dstruir sesion
 
 //Definición de rutas de cuenta
 router.get('/user', userController.new);
-router.post('/user', userController.create);
-router.get('/user/:userId(\\d+)/edit',		sessionController.loginRequired, userController.ownershipRequired, userController.edit);
-router.put('/user/:userId(\\d+)', 			sessionController.loginRequired, userController.ownershipRequired, userController.update);
+router.post('/user', multer({dest:'./public/media/'}), userController.create);
+router.get('/user/:userId(\\d+)/edit',		sessionController.loginRequired, userController.ownershipRequired,  userController.edit);
+router.put('/user/:userId(\\d+)', 			sessionController.loginRequired, userController.ownershipRequired, multer({dest:'./public/media/'}),  userController.update);
 router.delete('/user/:userId(\\d+)', 		sessionController.loginRequired, userController.ownershipRequired, userController.destroy);
 router.get('/user/:userId(\\d+)/quizes',	sessionController.loginRequired, userController.ownershipRequired, quizController.index);
 
@@ -57,6 +57,9 @@ router.get('/quizes/statistics', statscontroller.show);
 router.get('/user/:userId(\\d+)/favourites', sessionController.loginRequired, favscontroller.show);
 router.put('/user/:userId(\\d+)/favourites/:quizId(\\d+)', sessionController.loginRequired, quizController.propiedad, favscontroller.marcar);
 router.delete('/user/:userId(\\d+)/favourites/:quizId(\\d+)', sessionController.loginRequired, quizController.propiedad, favscontroller.desmarcar);
+
+router.get('/users', sessionController.loginRequired, userController.index);
+router.get('/user/:userId(\\d+)', sessionController.loginRequired,  userController.show);
 
 
 module.exports = router;

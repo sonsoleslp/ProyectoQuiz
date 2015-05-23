@@ -1,0 +1,22 @@
+
+<table align="center" id="usuarios">
+<% for (i=0; i < users.length; i++) { %> 
+<tr><td><a href="user/<%=users[i].id%>"><img id="prof" src="/media/<%=users[i].image%>"></a>
+</td><td><%=users[i].username%></td> </tr>
+<%}%>
+</table>
+
+<style>
+body{
+
+}
+#usuarios{
+	border:none;
+
+}
+
+th{
+
+}
+
+</style>

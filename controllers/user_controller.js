@@ -60,7 +60,12 @@ exports.update = function(req,res,next){
 	console.log("update user");
 	req.user.username = req.body.user.username;
 	req.user.password = req.body.user.password;
-
+	console.log("llega");
+	req.user.description = req.body.user.description;
+	if(req.files.image){
+		req.user.image=req.files.image.name;
+	}
+	console.log("llega2");
 	req.user
 	.validate()
 	.then(
@@ -69,7 +74,7 @@ exports.update = function(req,res,next){
 				res.render('user/',req.user.id,{user:req.user,errors:err.errors});
 			} else {
 				req.user
-				.save({fields: ['username','password']})
+				.save({fields: ['username','password','description','image']})
 				.then(function(){res.redirect('/');});
 			}
 		}).catch(function(error){next(error)});
@@ -83,8 +88,11 @@ exports.new = function(req,res){
 };
 
 exports.create = function(req,res){
+	
+	if(req.files.image){
+		req.user.image=req.files.image.name;
+	}
 	var user = models.User.build(req.body.user);
-
 	user
 	.validate()
 	.then(
@@ -95,7 +103,7 @@ exports.create = function(req,res){
 				user
 				.save({fields:["username","password"]})
 				.then(function(){
-					req.session.user = {id:user.id, username:user.username};
+					req.session.user = {id:user.id, username:user.username, description:user.description, image:user.image};
 					res.redirect('/');
 				});
 			}
@@ -108,4 +116,20 @@ exports.destroy = function(req,res){
 		delete req.session.user;
 		res.redirect('/');
 	}).catch(function(error){next(error)});
+};
+
+exports.index = function(req,res){
+
+	models.User.findAll().then(function(users){
+		res.render('user/index',{users:users, errors: []});
+	})
+	
+};
+
+exports.show = function(req,res){
+
+	models.User.findById(req.user.id).then(function(user){
+		res.render('user/profile',{user:user, errors: []});
+	})
+	
 };

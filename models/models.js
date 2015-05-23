@@ -53,7 +53,7 @@ sequelize.sync().then(function(){
 		if(count===0){console.log('aqui');
 			User.bulkCreate(
 				[ {username: 'admin', password:'1234', isAdmin: true},
-				  {username: 'pepe', password:'5678'}
+				  {username: 'sonsoleslp', password:'5678', description: ' Sonsoles López Pernas. 21 años.'}
 				  ]
 				
 

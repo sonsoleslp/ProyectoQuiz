@@ -41,7 +41,16 @@ module.exports = function(sequelize, DataTypes){
 			isAdmin: {
 				type: DataTypes.BOOLEAN,
 				defaultValue: false
+			},
+			description:{
+				type: DataTypes.STRING,
+				defaultValue:''
+			},
+			image:{
+				type: DataTypes.STRING,
+				defaultValue: 'user.png'
 			}
+
 		},{
 			instanceMethods: {
 				verifyPassword: function(password){

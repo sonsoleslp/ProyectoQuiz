@@ -65,7 +65,7 @@ nav{
     margin-left: auto;
     margin-right: auto;
     visibility:visible;
-    width:70%;
+    width:80%;
     text-align:center;
     border-top: 1px solid #e6e9eb;
     border-bottom: 1px solid #e6e9eb;
@@ -116,7 +116,7 @@ a[data-title]:hover:after {
   padding: 4px 8px;
   color: #333;
   position: absolute;
-  left: 0;
+  right: 0;
   top: 100%;
   white-space: nowrap;
 }
@@ -148,7 +148,14 @@ button,#sss,input.file{
   button,#sss,input.file::-moz-focus-inner {
     border: 0;
   }
-
+ textarea{
+  outline:none;
+  width: 260px;
+  height:70px;
+  line-height: 15px; 
+  vertical-align: text-top;
+  margin-bottom:20px;
+ }
   #borrar{
     white-space: nowrap;
     display:inline;
@@ -157,3 +164,10 @@ button,#sss,input.file{
  .quiz_img{
   margin-bottom: 20px;
  }
+
+ #usuarios{
+  text-align: left;}
+
+  #prof{
+    max-height: 20px;
+  }

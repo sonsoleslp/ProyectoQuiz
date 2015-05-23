@@ -176,7 +176,7 @@ exports.update = function(req,res) {
 
 	if(req.files.image){
 		req.quiz.image=req.files.image.name;
-	}
+	} else {req.quiz.image='user.png'}
 
 	req.quiz.pregunta = req.body.quiz.pregunta;
 	req.quiz.respuesta = req.body.quiz.respuesta;

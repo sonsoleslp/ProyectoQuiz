@@ -22,12 +22,13 @@
         </span>
       <%}else{%>
       <span class="right">
-        <%= session.user.username  %>  
+
+            <a href="/user/<%=session.user.id%>" data-title="Perfil"> <%= session.user.username  %>  </a> 
            <a href="/user/<%=session.user.id%>/edit" data-title="Settings"><img src="/images/settings.png" ></a>  
            <a href="/logout"  data-title="Logout"> <img src="/images/session.png"></a>
       </span>
       <%}%>
-      <h2><img src="/images/QUIZ.gif"</h2>
+      <h2><img src="/images/other.png"</h2>
       </header> 
 
       <nav class = "main" id="n1" role="navigation">
@@ -37,6 +38,7 @@
           <span><a id="bar" href="/user/<%=session.user.id%>/quizes">Mis preguntas</a></span> 
           <span><a id="bar" href="/user/<%=session.user.id%>/favourites">Favoritos</a></span> <%}%>
           <span><a id="bar" href="/quizes/statistics">Estadísticas</a></span> 
+          <span><a id="bar" href="/users">Usuarios</a></span>  
           <span><a id="bar" href="/author">Créditos</a></span>         
           <span><a id="bar" href="https://github.com/sonsoleslp/ProyectoQuiz">GITHUB</a></span>
         

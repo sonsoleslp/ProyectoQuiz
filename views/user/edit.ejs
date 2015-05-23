@@ -1,6 +1,6 @@
-<p>Editar información de la cuenta:</p>
+<h2>Editar información de la cuenta:</h2>
 
-<form method="post" action="/user/<%= user.id %>?_method=put" >
+<form method="post" action="/user/<%= user.id %>?_method=put" enctype="multipart/form-data" >
 	<% include_form.ejs %>
 </form>
 

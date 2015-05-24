@@ -31,9 +31,9 @@
 <p><strong>Comentarios: </strong></p>
 <%for (index in quiz.Comments){ %>
 	<% if(quiz.Comments[index].publicado ){%>
-	<p>- <%= quiz.Comments[index].texto %></p>
+	<p>  <nombre><%=quiz.Comments[index].autor%>:  </nombre> <%= quiz.Comments[index].texto %></p>
 	<% } else if (session.user && (session.user.isAdmin || (session.user && quiz.UserId === session.user.id))){ %>
-	<p>- <%= quiz.Comments[index].texto %></p>
+	<p> <nombre> <%=quiz.Comments[index].autor%>:  </nombre> <%= quiz.Comments[index].texto %></p>
 		
 			<a href="/quizes/<%= quiz.id %>/comments/<%= quiz.Comments[index].id %>/publish"> <button>Publicar</button></a>
 			

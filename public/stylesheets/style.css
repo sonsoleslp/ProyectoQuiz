@@ -173,3 +173,6 @@ button,#sss,input.file{
   }
 
   #cabecera{max-width:90%;}
+
+  nombre{color:#E5012C;
+    font-weight: 600;}

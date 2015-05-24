@@ -8,7 +8,11 @@ module.exports = function(sequelize,DataTypes){
 		   publicado: {
 		   	type: DataTypes.BOOLEAN,
 		   	defaultValue: false
-		   }
+		   },
+		  autor:{
+		  	 	type: DataTypes.STRING,
+		   	defaultValue: 'anónimo'
+		  }
 
  	});
 }

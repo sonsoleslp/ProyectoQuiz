@@ -6,6 +6,7 @@
 }
 html{
   font: 14px 'Karla', "Lucida Grande", Helvetica, Arial, sans-serif;
+
 }
 body {
 
@@ -163,6 +164,7 @@ button,#sss,input.file{
 
  .quiz_img{
   margin-bottom: 20px;
+  border-radius:10px;
  }
 
  #usuarios{
@@ -176,3 +178,41 @@ button,#sss,input.file{
 
   nombre{color:#E5012C;
     font-weight: 600;}
+
+
+::-moz-selection{
+    background-color:#F6044E;
+    color:white;}
+
+
+::selection{
+    background-color:#F6044E;
+    color:white;}
+
+area{
+  outline:none;
+}
+
+.video{
+  width:533px;
+
+}
+
+    
+/* No funciona para Firefox (sólo para Chrome, Safari...)*/
+::-webkit-scrollbar {
+    width: 10px;
+    height: 13px;
+    background-color:white;
+} 
+   
+
+::-webkit- scrollbar-track-piece{
+    background-color:white;
+    color:white;}
+    
+::-webkit-scrollbar-thumb{
+    background-color:grey; 
+    color:white;}
+
+                                    

@@ -57,13 +57,6 @@ exports.index = function(req,res){
 	if(req.user){
 		options.where = {UserId: req.user.id }
 		console.log("req.user      " +req.user);
-			//Gestión favoritos para Mis preguntas
-			/*	req.user.getQuizzes({through: 'Favourites'}).then(function(favourites){
-				favourites.forEach(function(favourite){
-					favs[favourite.id]=1; console.log("id"+favourite.id);
-					});
-			});*/
-			//	
 	};
 
 	if ( req.session && req.session.user){
@@ -71,17 +64,14 @@ exports.index = function(req,res){
     }
 
 	
-	
-	console.log(favs.toString());
+
 
 	if (req.query.search == undefined) {
 		models.Quiz.findAll(options).then(function(quizes){
 
 			if (req.session.user) {
 				quizes.forEach(function(quiz) {
-					quiz.isFav = quiz.Fans.some(function(fan) {return fan.id == 
-
-req.session.user.id});
+					quiz.isFav = quiz.Fans.some(function(fan) {return fan.id == req.session.user.id});
 				});
 			}
 						
@@ -93,18 +83,18 @@ req.session.user.id});
 		var search= '%' +(String(req.query.search)).replace(/\s/g,"%")+'%';
 		models.Quiz.findAll({where: ["pregunta like ?",search], order: ['pregunta'], include : 
 
-{model: models.User, as: "Fans"}}).then(function(quizes){
+			{model: models.User, as: "Fans"}}).then(function(quizes){
 			if (req.session.user) {
 				quizes.forEach(function(quiz) {
-					quiz.isFav = quiz.Fans.some(function(fan) {return fan.id == 
-
-req.session.user.id});
+					quiz.isFav = quiz.Fans.some(function(fan) {return fan.id == req.session.user.id});
 				});
 			}
 			res.render('quizes/index.ejs',{quizes: quizes,errors:[]});
 		}).catch(function(error){next(error);});
 	}
 };
+
+
 // GET /quiz/:id
 exports.show = function (req,res){///////////////////////
 	models.Quiz.findAll({where: {id:req.params.quizId}, include:{model: models.User, as: "Fans"}}).then(function(quizes) {

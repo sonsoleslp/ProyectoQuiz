@@ -15,3 +15,9 @@ body {font-size: xx-large;}
 footer, input, button {font-size:x-large; width: inherit;}
 .quiz_img{float:none;}
 #page-wrap:after {content:"Smartphone Layout"; font-size: small; color:grey;}
+.mapa{display:none;}
+
+.video,.yo{
+  max-width:80%;
+  
+}

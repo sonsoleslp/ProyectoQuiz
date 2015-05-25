@@ -58,10 +58,13 @@ exports.edit = function(req,res){
 
 exports.update = function(req,res,next){
 	console.log("update user");
-	req.user.username = req.body.user.username;
-	req.user.password = req.body.user.password;
+	if (!req.body.user) {
+		req.body.user={};
+	}
+	req.user.username = req.body.user.username || "";
+	req.user.password = req.body.user.password || "";
 	console.log("llega");
-	req.user.description = req.body.user.description;
+	req.user.description = req.body.user.description || "";
 	if(req.files.image){
 		req.user.image=req.files.image.name;
 	}
@@ -71,7 +74,7 @@ exports.update = function(req,res,next){
 	.then(
 		function(err){
 			if(err){
-				res.render('user/',req.user.id,{user:req.user,errors:err.errors});
+				res.render('user/edit',{user:req.user,errors:err.errors});
 			} else {
 				req.user
 				.save({fields: ['username','password','description','image']})

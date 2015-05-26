@@ -8,7 +8,7 @@ var bodyParser = require('body-parser');
 var partials = require('express-partials');
 var methodOverride = require('method-override');
 var session = require('express-session');
-
+var visitas = 0;
 
 var routes = require('./routes/index');
 var author = require('./routes/author');
@@ -22,7 +22,6 @@ app.set('view engine', 'ejs');
 
 app.use(partials());
 
-// uncomment after placing your favicon in /public
 app.use(favicon(__dirname + '/public/favicon.png'));
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -34,6 +33,17 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 app.use(function(req,res,next){
+    console.log('sesion:  ' +req.session);
+     req.session.count = req.session.count || 0;
+
+     if(req.session.count=== 0) visitas++;
+     req.session.count++;
+
+    console.log("visitas: "+ visitas)
+
+     req.session.visitas=visitas;
+    
+
     if (req.session.user){
         if(req.session.user.inicio){
 

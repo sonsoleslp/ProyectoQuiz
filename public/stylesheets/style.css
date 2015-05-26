@@ -5,92 +5,82 @@
   src: local('Karla'), local('Karla-Regular'), url(https://fonts.gstatic.com/s/karla/v5/Zi_e6rBgGqv33BWF8WTq8g.woff2) format('woff2'), url(https://fonts.gstatic.com/s/karla/v5/azR40LUJrT4HaWK28zHmVA.woff) format('woff');
 }
 html{
-  font: 14px 'Karla', "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px 'Karla', "Lucida Grande", Helvetica, Arial, sans-serif;}
 
-}
 body {
-
-  font: 14px 'Karla', "Lucida Grande", Helvetica, Arial, sans-serif;
-
-}
+  font: 14px 'Karla', "Lucida Grande", Helvetica, Arial, sans-serif;}
 
 a {
-
-  
   color: #E5012C;
-  text-decoration: none;
-}
+  text-decoration: none;}
 
 div{
-	 text-align:center;
-	 padding: 18px;
-}
+  text-align:center;
+  padding: 18px;}
 
 form, input{
-    font: normal 'Karla', "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: normal 'Karla', "Lucida Grande", Helvetica, Arial, sans-serif;
   outline:none;
-  background-color: white;
-}
-
-
+  background-color: white;}
 
 
 input:hover{
-  font-weight:normal;
-
-}
+  font-weight:normal;}
 
 span.right{
   position:absolute;
   top:0;
   right:0;
-	margin:5px;
-}
+  margin:5px;}
 
 h2{
-	color:#E50142;
-}
+	color:#E50142;}
 
 li{
-    background-color:inherit;
-    display:inline-block;
-    margin:15px;}
+  background-color:inherit;
+  display:inline-block;
+  margin:15px;}
 
 ul{ 
-    background-color:inherit;
-    margin:5px;}
+  background-color:inherit;
+  margin:5px;}
 
 nav{
-	color:#E50142;
-    display:block;
-    margin-left: auto;
-    margin-right: auto;
-    visibility:visible;
-    width:65%;
-    text-align:center;
-    border-top: 1px solid #e6e9eb;
-    border-bottom: 1px solid #e6e9eb;
-    background-color:white;
-    bottom:0;
-    padding:5px;
+ color:#E50142;
+ display:block;
+ margin-left: auto;
+ margin-right: auto;
+ visibility:visible;
+ width:65%;
+ text-align:center;
+ border-top: 1px solid #e6e9eb;
+ border-bottom: 1px solid #e6e9eb;
+ background-color:white;
+ bottom:0;
+ padding:5px;
 }
 
-footer{
-	bottom:0;
-	position: fixed;
+ footer{
+   bottom:0;
+   position: fixed;
 
-}
+ }
 
-span{
+ span{
   padding:6px;
   margin:6px;
 }
 
 #bar{
   font-size:inherit;
+  padding:4px;
+
 }
 #bar:hover{
-  color:#BEBEBE;
+  color:#555;
+  font-weight: bold;
+
+
 }
 #pregu:hover{
   font-weight: bolder;
@@ -101,9 +91,25 @@ span{
   font-weight: bolder;
 }
 
+.columnafoto{
+  text-align: center;
+}
+img.arriba:hover{
+  transform:scale(1.15);
+  -ms- transform:scale(1.15); /* IE 9 */
+  -webkit- transform:scale(1.15);/* Safari */
+}
+
+.bot:hover{
+ transform:scale(1.15);
+}
 
 
- span {
+a.abajo:hover{
+  font-weight: bold;
+
+}
+span {
   margin: 0px 10px 0px 0px;
 }
 
@@ -123,60 +129,88 @@ a[data-title]:hover:after {
 }
 
 button,#sss,input.file{
-    margin: 0;
-    padding: 5px 15px;
-    font-weight: normal;
-  
-    outline: none;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none;
-    color: #ffffff;
-    border: solid 1px #E5012C; border-right:0px;
-    background: #0095cd;
-    background: -webkit-gradient(linear, left top, left bottom, from( #E5012C), to(#e7274b));
-    background: -moz-linear-gradient(top,  #E5012C,  #e7274b);
-    border-radius: 5px 5px;
+  margin: 0;
+  padding: 5px 15px;
+  font-weight: normal;
+
+  outline: none;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  color: #ffffff;
+  border: solid 1px #E5012C; border-right:0px;
+  background: #0095cd;
+  background: -webkit-gradient(linear, left top, left bottom, from( #E5012C), to(#e7274b));
+  background: -moz-linear-gradient(top,  #E5012C,  #e7274b);
+  border-radius: 5px 5px;
 }
-   
-  button:hover,#sss:hover,input.file:hover {
-    text-decoration: none;
-    background: #007ead;
-    background: -webkit-gradient(linear, left top, left bottom, from(#e7274b), to(#E5012C));
-    background: -moz-linear-gradient(top,  #e7274b,  #E5012C);
-  }
-  /* Fixes submit button height problem in Firefox */
-  button,#sss,input.file::-moz-focus-inner {
-    border: 0;
-  }
- textarea{
+
+button:hover,#sss:hover,input.file:hover {
+  text-decoration: none;
+  background: #007ead;
+  background: -webkit-gradient(linear, left top, left bottom, from(#e7274b), to(#E5012C));
+  background: -moz-linear-gradient(top,  #e7274b,  #E5012C);
+}
+
+/* Fixes submit button height problem in Firefox */
+button,#sss,input.file::-moz-focus-inner {
+  border: 0;
+}
+
+textarea{
   outline:none;
   width: 260px;
   height:70px;
   line-height: 15px; 
   vertical-align: text-top;
   margin-bottom:20px;
- }
-  #borrar{
-    white-space: nowrap;
-    display:inline;
-  }
+}
 
- .quiz_img{
+#borrar{
+  white-space: nowrap;
+  display:inline;
+}
+
+span.visit{
+  background-color: #888;
+  color:white;
+  border-radius:5px;
+  font-size: 18px;
+  right:0;
+  bottom:-5px;
+  position:fixed;
+  letter-spacing: 3px;
+
+}
+
+
+.quiz_img{
   margin-bottom: 20px;
   border-radius:10px;
- }
+}
 
- #usuarios{
+#usuarios{
   text-align: left;}
 
-  #prof{
-    max-height: 20px;
-  }
+#prof{
+  max-height: 20px;
+}
 
-  #cabecera{max-width:90%;}
+#prof:hover{
 
-  nombre{color:#E5012C;
+    transform:scale(1.2);  width:auto;
+}
+
+#prof2{
+  max-height: 200px;
+}
+
+
+
+
+#cabecera{max-width:90%;}
+
+nombre{color:#E5012C;
     font-weight: 600;}
 
 
@@ -190,29 +224,26 @@ button,#sss,input.file{
     color:white;}
 
 area{
-  outline:none;
-}
+      outline:none;
+    }
 
 .video{
-  width:533px;
+      width:533px;}
 
-}
 
-    
-/* No funciona para Firefox (sólo para Chrome, Safari...)*/
-::-webkit-scrollbar {
+
+   /* No funciona para Firefox (sólo para Chrome, Safari...)*/
+  ::-webkit-scrollbar {
     width: 10px;
     height: 13px;
-    background-color:white;
-} 
-   
+    background-color:white;} 
 
-::-webkit- scrollbar-track-piece{
+
+  ::-webkit- scrollbar-track-piece{
     background-color:white;
     color:white;}
-    
-::-webkit-scrollbar-thumb{
+
+  ::-webkit-scrollbar-thumb{
     background-color:grey; 
     color:white;}
 
-                                    

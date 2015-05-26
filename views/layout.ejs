@@ -3,71 +3,76 @@
 
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8"><title>Quiz</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-    <link rel ='stylesheet' media='only screen and (min-width:530px) and (min-device-width:481px)' href='/stylesheets/wide.css' />
-    <link rel ='stylesheet' media='only screen and (max-width:480px)' href='/stylesheets/smartphone.css' />
-    <link rel ='stylesheet'  href='/stylesheets/search.css' />
+<head>
+  <meta charset="utf-8"><title>Quiz</title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <link rel ='stylesheet' media='only screen and (min-width:530px) and (min-device-width:481px)' href='/stylesheets/wide.css' />
+  <link rel ='stylesheet' media='only screen and (max-width:480px)' href='/stylesheets/smartphone.css' />
+  <link rel ='stylesheet'  href='/stylesheets/search.css' />
 
-  </head>
-  <body>
-    <div id="page-wrap">
-      <header class="main" id="h1">
+</head>
+<body>
+  <div id="page-wrap">
+    <header class="main" id="h1">
 
       <%if(!session.user){%>
       <span class="right">  
-         <a href="/user"  data-title="Sign up"><img src="/images/adduser.png"></a>
-         <a href="/login"  data-title="Login"><img src="/images/session.png"></a>
-        </span>
-      <%}else{%>
-      <span class="right">
+       <a href="/user"  data-title="Sign up"><img class="arriba" src="/images/adduser.png"></a>
+       <a href="/login"  data-title="Login"><img class="arriba" src="/images/session.png"></a>
+     </span>
+     <%}else{%>
+     <span class="right">
 
-            <a href="/user/<%=session.user.id%>" data-title="Perfil"> <%= session.user.username  %>  </a> 
-           <a href="/user/<%=session.user.id%>/edit" data-title="Settings"><img src="/images/settings.png" ></a>  
-           <a href="/logout"  data-title="Logout"> <img src="/images/session.png"></a>
-      </span>
-      <%}%>
-      <h2><img id="cabecera" src="/images/OTHER.png"</h2>
-      </header> 
+      <a href="/user/<%=session.user.id%>" data-title="Perfil"> <%= session.user.username  %>  </a> 
+      <a href="/user/<%=session.user.id%>/edit" data-title="Settings"><img class="arriba" src="/images/settings.png" ></a>  
+      <a href="/logout"  data-title="Logout"> <img class="arriba" src="/images/session.png"></a>
+    </span>
+    <%}%>
+    <h2><img id="cabecera" src="/images/OTHER.png"</h2>
+  </header> 
 
-      <nav class = "main" id="n1" role="navigation">
-        <span><a id="bar" href="/">Inicio</a></span>
-        <span><a id="bar" href ="/quizes">Preguntas</a></span>
-        <%if(session.user){%>
-          <span><a id="bar" href="/user/<%=session.user.id%>/quizes">Mis preguntas</a></span> 
-          <span><a id="bar" href="/user/<%=session.user.id%>/favourites">Favoritos</a></span> 
-          <span><a id="bar" href="/users">Usuarios</a></span> <%}%>
-          <span><a id="bar" href="/quizes/statistics">Estadísticas</a></span> 
-          <span><a id="bar" href="/author">Créditos</a></span>         
-
-        
-           
- 
-        </nav>
-      
-     <p></p>
-    </footer>
-      </nav>  
-
-      <section class="main" id="s1">
-        <% if (errors.length) { %>
-          <span id='ErrorMsgs'>
-          Corregir errores:<br/>
-          <% for (var i in errors) { %>
-            <span> <%= errors[i].message %> </span><br/>
-            <% } %>
-            </span>
-            <% } %>
+  <nav class = "main" id="n1" role="navigation">
+    <span><a id="bar" href="/">Inicio</a></span>
+    <span><a id="bar" href ="/quizes">Preguntas</a></span>
+    <%if(session.user){%>
+    <span><a id="bar" href="/user/<%=session.user.id%>/quizes">Mis preguntas</a></span> 
+    <span><a id="bar" href="/user/<%=session.user.id%>/favourites">Favoritos</a></span> 
+    <span><a id="bar" href="/users">Usuarios</a></span> <%}%>
+    <span><a id="bar" href="/quizes/statistics">Estadísticas</a></span> 
+    <span><a id="bar" href="/author">Créditos</a></span>         
 
 
-      <div><%- body %></div>
-      </section>
-      <footer class="main" id="f1">
-      <span><a href="http://es.wikipedia.org/wiki/Quiz">¿Qué es un Quiz?</a></span>
-                <span><a  href="https://github.com/sonsoleslp/ProyectoQuiz">GITHUB</a></span>
-      </footer>
-   </div></body>
+
+
+  </nav>
+
+  <p></p>
+</footer>
+</nav>  
+
+<section class="main" id="s1">
+  <% if (errors.length) { %>
+  <span id='ErrorMsgs'>
+    Corregir errores:<br/>
+    <% for (var i in errors) { %>
+    <span> <%= errors[i].message %> </span><br/>
+    <% } %>
+  </span>
+  <% } %>
+
+
+  <div><%- body %></div>
+</section>
+<footer class="main" id="f1">
+  <span><a class="abajo" href="http://es.wikipedia.org/wiki/Quiz">¿Qué es un Quiz?</a></span>
+  <span><a class="abajo" href="https://github.com/sonsoleslp/ProyectoQuiz">GITHUB</a></span>
+
+
+</footer>
+
+</div> <% if(session.visitas<1000) {var vis=("00" + session.visitas).slice (-3);} else {var vis=session.visitas;}%>
+<span class="visit"><strong> <%= vis %></strong></span>
+</body>
 </html>
 
 

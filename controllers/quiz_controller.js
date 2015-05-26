@@ -96,7 +96,7 @@ exports.index = function(req,res){
 
 
 // GET /quiz/:id
-exports.show = function (req,res){///////////////////////
+exports.show = function (req,res){
 	models.Quiz.findAll({where: {id:req.params.quizId}, include:{model: models.User, as: "Fans"}}).then(function(quizes) {
 	    //	if(req.user){
 			if (req.session.user) {

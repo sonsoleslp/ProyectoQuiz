@@ -21,17 +21,17 @@
 		<a id="pregu" href="/quizes/<%= quizes[i].id %>"><%= quizes[i].pregunta %></a>
 		<%if(session.user)  {
 			if(session.user.isAdmin || session.user.id=== quizes[i].UserId){%>
-    	<a href="/quizes/<%= quizes[i].id %>/edit"><img src="/images/edit.png"></a><nobr>
+    	<a href="/quizes/<%= quizes[i].id %>/edit"><img class="bot" src="/images/edit.png"></a><nobr>
     	<form method="post" id="borrar" action="/quizes/<%= quizes[i].id %>?_method=delete">
-    	<input type ="image" src="/images/delete.png" onClick='return confirm(" ¿Eliminar esta pregunta? <% quizes[i].pregunta %>");'>
+    	<input type ="image" class="bot" src="/images/delete.png" onClick='return confirm(" ¿Eliminar esta pregunta? <% quizes[i].pregunta %>");'>
 		</form><%}%>
 		<% if(quizes[i].isFav){ %>	
 		<form method="post" id="borrar" action="/user/<%= session.user.id %>/favourites/<%= quizes[i].id %>?_method=delete">
-    	<input type ="image" src="/images/fav.png" onClick='return confirm(" ¿Eliminar esta pregunta de favoritos? ");'>
+    	<input type ="image" class="bot" src="/images/fav.png" onClick='return confirm(" ¿Eliminar esta pregunta de favoritos? ");'>
 		</form>
     	<% } else { %>
     	<form method="post" id="borrar" action="/user/<%= session.user.id %>/favourites/<%= quizes[i].id %>?_method=put">
-    	<input type ="image" src="/images/nofav.png" onClick='return confirm(" Añadir esta pregunta a favoritos? ");'>
+    	<input type ="image" class="bot" src="/images/nofav.png" onClick='return confirm(" Añadir esta pregunta a favoritos? ");'>
 		</form>
 
     	<%}%>

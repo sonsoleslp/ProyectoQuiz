@@ -32,14 +32,14 @@
   </header> 
 
   <nav class = "main" id="n1" role="navigation">
-    <span><a id="bar" href="/">Inicio</a></span>
-    <span><a id="bar" href ="/quizes">Preguntas</a></span>
+    <span id="bb"><a id="bar" title="Página principal" href="/">Inicio</a></span>
+    <span id="bb"><a id="bar" title="Comienza a jugar" hrdata-title="Logout" ef ="/quizes">Preguntas</a></span>
     <%if(session.user){%>
-    <span><a id="bar" href="/user/<%=session.user.id%>/quizes">Mis preguntas</a></span> 
-    <span><a id="bar" href="/user/<%=session.user.id%>/favourites">Favoritos</a></span> 
-    <span><a id="bar" href="/users">Usuarios</a></span> <%}%>
-    <span><a id="bar" href="/quizes/statistics">Estadísticas</a></span> 
-    <span><a id="bar" href="/author">Créditos</a></span>         
+    <span id="bb"><a id="bar" title="Preguntas creadas por ti" href="/user/<%=session.user.id%>/quizes">Mis preguntas</a></span> 
+    <span id="bb"><a id="bar" title="Tus preguntas favoritas" href="/user/<%=session.user.id%>/favourites">Favoritos</a></span> 
+    <span id="bb"><a id="bar" title="¿Quién más está jugando?" href="/users">Usuarios</a></span> <%}%>
+    <span id="bb"><a id="bar" title="Estadísticas sobre el juego" href="/quizes/statistics">Estadísticas</a></span> 
+    <span id="bb"><a id="bar" title="Acerca del autor" href="/author">Créditos</a></span>         
 
 
 
@@ -66,6 +66,7 @@
 <footer class="main" id="f1">
   <span><a class="abajo" href="http://es.wikipedia.org/wiki/Quiz">¿Qué es un Quiz?</a></span>
   <span><a class="abajo" href="https://github.com/sonsoleslp/ProyectoQuiz">GITHUB</a></span>
+  <span><firma>by Sonsoles López Pernas</firma></span>
 
 
 </footer>

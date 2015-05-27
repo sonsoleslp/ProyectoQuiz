@@ -31,7 +31,7 @@ app.use(session());
 app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')));
 
-
+//Logout automático
 app.use(function(req,res,next){
     console.log('sesion:  ' +req.session);
      req.session.count = req.session.count || 0;
@@ -39,8 +39,9 @@ app.use(function(req,res,next){
      if(req.session.count=== 0) visitas++;
      req.session.count++;
 
-    console.log("visitas: "+ visitas)
-
+    console.log("visitas: "+ visitas);
+    console.log("hits del usuario: "+ req.session.count);
+    
      req.session.visitas=visitas;
     
 
@@ -77,7 +78,7 @@ app.use(function(req,res,next){
 
 app.use('/', routes);
 
-//Logout automático
+
 
 
 

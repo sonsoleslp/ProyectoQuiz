@@ -2,7 +2,8 @@
 ![alt text][firma] 
 
 ----
-## Descripción del proyecto
+### Descripción del proyecto
+
 Proyecto desarrollado para la asignatura de Computación en Red de 3º curso de *Grado en Ingeniería de Servicios y Sistemas de Telecomunicaciones* de la UPM.
 
 El proyecto consiste en una aplicación web, que emplea *node.js* para la capa de servidor; *HTML*, *CSS* y *JS* para el front-end, y base de datos *SQLite*.
@@ -17,7 +18,7 @@ El *Quiz* contiene varias secciones
   - **Usuarios**: Contiene un listado de usuarios y acceso a su perfil.
   - **Créditos**: Perfil de la autora.
 
-Las preguntas se pueden modificar y/o eliminar si se es propietario de ellas, pero cualquiera puede marcarlas como favoritas. También se pueden agregar fotos y crear preguntas nuevas. 
+Las preguntas se pueden modificar y/o eliminar si se es propietario de ellas, pero cualquiera puede marcarlas como favoritas. También se pueden agregar fotos, comentarios y crear preguntas nuevas. 
 
 Cada usuario tiene un perfil, accesible desde el listado de usuarios, con una foto personalizable y una descripción del usuario.
 

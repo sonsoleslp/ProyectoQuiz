@@ -8,6 +8,7 @@ footer {clear:both; display:block;}
 #page-wrap:after {
 	position:fixed;
 	bottom:0;
+	right:10%;
 	content:"Wide Layout";
 	color:#bbbbbb;
 }

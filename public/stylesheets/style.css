@@ -181,6 +181,30 @@ button,#sss,input.file::-moz-focus-inner {
   border: 0;
 }
 
+
+#lista{
+ display:inline-block; 
+  text-align: center;
+   vertical-align: top;
+
+}
+
+block:{
+  
+    vertical-align: text-top;
+    
+  }
+
+#fr {
+ 
+    z-index: 100; 
+    vertical-align: text-top;
+}
+
+#donutchart{
+    float:center; display:inline-block; text-align:center; width:70%; max-width:550px; height: 357px;"
+}
+
 textarea{
   outline:none;
   width: 260px;
@@ -189,6 +213,7 @@ textarea{
   vertical-align: text-top;
   margin-bottom:20px;
 }
+
 
 #borrar{
   white-space: nowrap;

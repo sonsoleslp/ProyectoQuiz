@@ -21,3 +21,15 @@ footer, input, button {font-size:x-large; width: inherit;}
   max-width:80%;
   
 }
+input#login,input#password, input#preg, input#resp{
+	width:80%;
+}
+#lista{
+	
+		max-width:100%;
+		word-wrap: break-word;;
+}
+#fr{
+	display:inherit;
+	word-wrap: break-word;;
+}

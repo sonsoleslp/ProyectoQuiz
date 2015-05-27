@@ -1,23 +1,6 @@
 
-<style>
-	block:{
-
-		float:right;
-		vertical-align: text-bottom;
-		
-	}
-
-	#fr {
-    margin-left: auto;
-    margin-right: auto;
- 
-    z-index: 100; position:relative
-
-}
-</style>
-
 <h2>Estadísticas:</h2>
-
+<div align="center" > 
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script type="text/javascript">
       google.load("visualization", "1", {packages:["corechart"]});
@@ -31,7 +14,7 @@
 
         var options = {
           title: 'Preguntas',
-          pieHole: 0.45,
+          pieHole: 0.4,
           fontName: 'Karla',
           fontsize: 10,
           slices: {
@@ -48,16 +31,19 @@
         chart.draw(data, options);
       }
     </script>
-    <block id="donutchart" style="float: right; width:70%; max-width:550px; height: 357px;">
-    	
+
+    <block id="donutchart" align="center">
+      
     </block>
-    <block>
-    <br><br><br>
-<br><strong  id="fr" margin="20";> Número de preguntas totales: </strong>  <%= preguntas %></br>
-<br><strong  id="fr" margin="20";> Número de comentarios totales: </strong> <%= comentarios %></br>
-<br><strong  id="fr" margin="20";> Número medio de comentarios por pregunta: </strong> <%= media.toFixed(2) %></br>
-<!--<p><strong> Número de preguntas sin comentarios: </strong> <%= sin %></p>-->
-<!--<p><strong> Número de preguntas con comentarios: </strong> <%=con %></p>-->
+   <block id="lista" align="center" >
+    <br><br><br><br>
+      <br><strong  id="fr" margin="20";> Número de preguntas totales: </strong>  <%= preguntas %></br>
+      <br><strong  id="fr" margin="20";> Número de comentarios totales: </strong> <%= comentarios %></br>
+      <br><strong  id="fr" margin="20";> Número medio de comentarios por pregunta: </strong> <%= media.toFixed(2) %></br>
+      <!--<p><strong> Número de preguntas sin comentarios: </strong> <%= sin %></p>-->
+      <!--<p><strong> Número de preguntas con comentarios: </strong> <%=con %></p>-->
 
-	</block>
+  </block>
 
+
+</div>

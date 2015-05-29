@@ -19,20 +19,18 @@ firma{
   font-size: 14px;
 }
 
-
-
 html{
   font: 14px 'Karla', "Lucida Grande", Helvetica, Arial, sans-serif;
   cursor:url(/cur.png),  url(/bar.png), auto;}}
 
 body {
-  font: 14px 'Karla', "Lucida Grande", Helvetica, Arial, sans-serif;}
+  font: 14px 'Karla', "Lucida Grande", Helvetica, Arial, sans-serif;
+}
 
 a {
   color: #E5012C;
   text-decoration: none;
   cursor:url(/bar.png),pointer;}
-
 }
 
 button,input.submit,.tfbutton,area{cursor:url(/bar.png),pointer;}
@@ -259,27 +257,30 @@ span.visit{
 
 #cabecera{max-width:90%;}
 
-nombre{color:#E5012C;
-    font-weight: 600;}
+  nombre{color:#E5012C;
+  font-weight: 600;}
 
 
 ::-moz-selection{
-    background-color:#F6044E;
-    color:white;}
+  background-color:#F6044E;
+  color:white;}
 
 
 ::selection{
-    background-color:#F6044E;
-    color:white;}
+  background-color:#F6044E;
+  color:white;}
 
 area{
-      outline:none;
-    }
+  outline:none;
+}
 
 .video{
-      width:533px;}
+  width:533px;}
 
+#social:hover {
+  transform:scale(1.1); 
 
+}
 
    /* No funciona para Firefox (sólo para Chrome, Safari...)*/
   ::-webkit-scrollbar {

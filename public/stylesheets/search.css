@@ -1,4 +1,12 @@
-	
+	/*BARRA DE BÚSQUEDA*/
+
+	@font-face {
+	  font-family: 'Karla';
+	  font-style: normal;
+	  font-weight: 400;
+	  src: local('Karla'), local('Karla-Regular'), url(https://fonts.gstatic.com/s/karla/v5/Zi_e6rBgGqv33BWF8WTq8g.woff2) format('woff2'), url(https://fonts.gstatic.com/s/karla/v5/azR40LUJrT4HaWK28zHmVA.woff) format('woff');
+	}	
+
 	#tfnewsearch{
 		float:center;
 		padding:20px;
@@ -17,12 +25,14 @@
 		border:1px solid #E5012C; border-right:0px;
 		border-top-left-radius: 5px 5px;
 		border-bottom-left-radius: 5px 5px;
+  	    font: 14px 'Karla', "Lucida Grande", Helvetica, Arial, sans-serif;
 
 	}
+
 	.tfbutton {
 		margin: 0;
 		padding: 5px 15px;
-		
+		font: 14px 'Karla', "Lucida Grande", Helvetica, Arial, sans-serif;
 		font-size:14px;
 		outline: none;
 		cursor: pointer;
@@ -41,6 +51,7 @@
 		background: #007ead;
 		background: -webkit-gradient(linear, left top, left bottom, from(#e7274b), to(#E5012C));
 		background: -moz-linear-gradient(top,  #e7274b,  #E5012C);
+		cursor:url(/bar.png),pointer;
 	}
 	/* Fixes submit button height problem in Firefox */
 	.tfbutton::-moz-focus-inner {

@@ -39,6 +39,8 @@ Quiz.belongsTo(User);
 User.hasMany(Quiz);
 User.belongsToMany(Quiz, {through: 'Favourites', as:"Favourites" });
 Quiz.belongsToMany(User, {through: 'Favourites', as: "Fans" });
+User.belongsToMany(Quiz, {through: 'Points', as:"Ganados" });
+Quiz.belongsToMany(User, {through: 'Points', as:"Participants" });
 Comment.belongsTo(Quiz);
 Quiz.hasMany(Comment);
 // exportar tablas

@@ -4,11 +4,11 @@
  <%}%>
 <form method ="get" action="/quizes/<%= quiz.id %>/answer">
 		<p id="pregunta_title">Pregunta:    <%=quiz.pregunta%> </p>
-		<input type="text" name="respuesta" value="Respuesta"/>
+<nobr>		<input class="ress" type="text" name="respuesta" value="Respuesta"/>
 		<input id = "sss" type = "submit" value="Enviar"> 
 		
 </form>
-<p>
+
 
 <% if(session.user){
 	if(quiz.isFav) {%>
@@ -19,9 +19,14 @@
 	<form method="post" id="borrar" action="/user/<%= session.user.id %>/favourites/<%= quiz.id %>?_method=put">
 	<input type ="image" src="/images/nofav.png" onClick='return confirm("¿Añadir esta pregunta a favoritos? ");'>
 	</form>
+<%}%>
+</nobr>	
+
+<br>
+<%if(quiz.won){%>
+	<img src="/images/trofeorosa.png">
 
 <%}}%>
-
 </p>
 
 

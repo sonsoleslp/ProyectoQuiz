@@ -26,11 +26,16 @@ exports.desmarcar = function(req,res,next){
 exports.show = function(req,res,next){
 	console.log("show favourites");
 	req.user.getFavourites().then(function(favourites){
-		favourites.forEach(function(favourite){
-			favourite.isFav =true;
+		req.user.getGanados().then(function(superados){
+			favourites.forEach(function(favourite){
+				favourite.won = superados.some(function(ganado) {return favourite.id == ganado.id});				
+				favourite.isFav =true;
+			});
+			res.render('quizes/index.ejs',{quizes:favourites, errors:[]});
 		});
-		res.render('quizes/index.ejs',{quizes:favourites, errors:[]});
+		
 	}).catch(function(error){ next(error);})
 
 };
+
 

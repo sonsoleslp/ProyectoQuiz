@@ -42,8 +42,77 @@
       <br><strong  id="fr" margin="20";> Número medio de comentarios por pregunta: </strong> <%= media.toFixed(2) %></br>
       <!--<p><strong> Número de preguntas sin comentarios: </strong> <%= sin %></p>-->
       <!--<p><strong> Número de preguntas con comentarios: </strong> <%=con %></p>-->
-
+       <%if(session.user){%>
+      <br><strong  id="fr" margin="20";> Número de preguntas superadas: </strong> <%= superadas %></br>
+      <%}%>
   </block>
+
+
+
+<style>
+
+.skill-1 > span{
+   background-color:blue;
+  border-radius:5px; 
+
+}
+progress{
+  width:50%;
+  height:40px;
+  background-color:white;
+  border-radius:10px;
+}
+.skill-1::-moz-progress-bar {
+  background: #E50142;
+  color:white;
+
+}
+
+.skill-1::-webkit-progress-value {
+  border-radius:60px;
+  background: #E50142;
+ 
+
+  color:white;
+}
+
+
+@-webkit-keyframes bar-fill {
+  background-color:blue;
+  0% { width: 0; }
+}
+
+@keyframes bar-fill {
+
+  0% { width: 0; }
+}
+
+progress::-webkit-progress-bar {
+  background: #e9e9e9;
+  border-radius: 60px;
+
+  padding: 0px;
+  box-shadow: 0 1px 0px 0 rgba(255, 255, 255, 0.2);
+}
+
+
+
+</style>
+
+
+    <h3>Aciertos: <%=superadas%> / <%=preguntas%> </h3>
+
+    <progress class="skill-1" max="100" value="<%= (superadas/preguntas * 100) %>">
+
+      <strong> </strong>
+    </progress>
+
+
+
+
+
+
+
 
 
 </div>

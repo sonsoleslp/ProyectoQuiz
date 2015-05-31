@@ -44,8 +44,10 @@ alt="Share"/>
     <span id="bb"><a id="bar" title="Comienza a jugar" href ="/quizes">Preguntas</a></span>
     <%if(session.user){%>
     <span id="bb"><a id="bar" title="Preguntas creadas por ti" href="/user/<%=session.user.id%>/quizes">Mis preguntas</a></span> 
+    <span id="bb"><a id="bar" title="Preguntas acertadas" href="/user/<%=session.user.id%>/superados">Preguntas superadas</a></span> 
     <span id="bb"><a id="bar" title="Tus preguntas favoritas" href="/user/<%=session.user.id%>/favourites">Favoritos</a></span> 
-    <span id="bb"><a id="bar" title="¿Quién más está jugando?" href="/users">Usuarios</a></span> <%}%>
+    <span id="bb"><a id="bar" title="¿Quién más está jugando?" href="/users">Usuarios</a></span>
+  <%}%>
     <span id="bb"><a id="bar" title="Estadísticas sobre el juego" href="/quizes/statistics">Estadísticas</a></span> 
     <span id="bb"><a id="bar" title="Acerca del autor" href="/author">Créditos</a></span>         
 

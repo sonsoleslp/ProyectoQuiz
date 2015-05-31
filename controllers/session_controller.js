@@ -2,7 +2,7 @@
 exports.loginRequired = function(req, res, next){
 		console.log("entra session login");
 	if(req.session.user){
-		//req.user=req.session.user;///////////////////////////////
+
 		next();
 	} else {
 		res.redirect('/login');

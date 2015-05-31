@@ -33,10 +33,12 @@
     	<form method="post" id="borrar" action="/user/<%= session.user.id %>/favourites/<%= quizes[i].id %>?_method=put">
     	<input type ="image" class="bot" src="/images/nofav.png" onClick='return confirm(" Añadir esta pregunta a favoritos? ");'>
 		</form>
-
     	<%}%>
-
-
+		<%if(quizes[i].won){%>
+			<img src="/images/won.png">
+		<% }else{ %>
+			<img src="/images/nowon.png">
+		<%}%>
 
 		</nobr>
 </span>

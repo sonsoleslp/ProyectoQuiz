@@ -40,7 +40,7 @@ div{
   text-align:center;
   padding: 18px;}
 
-form, input{
+form, input, input.ress, input.submit, input.text, input#ress{
   font: normal 'Karla', "Lucida Grande", Helvetica, Arial, sans-serif;
   outline:none;
   background-color: white;}
@@ -73,7 +73,7 @@ nav{
  margin-left: auto;
  margin-right: auto;
  visibility:visible;
- width:65%;
+ width:75%;
  text-align:center;
  border-top: 1px solid #e6e9eb;
  border-bottom: 1px solid #e6e9eb;

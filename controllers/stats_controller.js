@@ -32,22 +32,36 @@ function preguntassin(q,c){ ////////////////////////////////////////////////////
 
 // GET /quizes/statistics
 exports.show = function(req,res){
-
-	models.Quiz.findAll().then(function(quizes){
+var won = 0;
+	models.Quiz.findAll({ include : {model: models.User, as: "Participants"}}).then(function(quizes){
 
 		models.Comment.findAll({where: {publicado: true}}).then(function(coment){
-			if(coment ==undefined) coment = [];
-			if(quizes == undefined ) quizes = [];
-			var sin= preguntassin(quizes,coment);
-			var preguntas =num_preguntas(quizes);
 
-				res.render('quizes/data.ejs',{
-				preguntas: preguntas, 
-				comentarios: num_com(coment),
-				media: avg(quizes,coment),
-				sin: preguntassin(quizes,coment),
-				con: preguntas - sin,
-				errors:[]});})
+			var ide = 1;
+			if(req.session && req.session.user) ide = req.session.user.id;
+					models.User.findById(ide).then(function(user){
+					   user.getGanados().then(function(ganados){
+						won = ganados.length;
+			
+	
+					if(coment ==undefined) coment = [];
+					if(quizes == undefined ) quizes = [];
+						var sin= preguntassin(quizes,coment);
+						var preguntas =num_preguntas(quizes);
+						var superadas = 0;
+							res.render('quizes/data.ejs',{
+							preguntas: preguntas, 
+							comentarios: num_com(coment),
+							media: avg(quizes,coment),
+							sin: preguntassin(quizes,coment),
+							con: preguntas - sin,
+							superadas:won,
+							nosuperadas:preguntas-won,
+							errors:[]});
+						})
+					})
+
+				});
 
 			
 		});

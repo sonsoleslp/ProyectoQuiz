@@ -60,7 +60,7 @@ exports.index = function(req,res){
 	};
 
 	if ( req.session && req.session.user){
-		options.include = {model: models.User, as: "Fans"}
+		options.include = [{model: models.User, as: "Fans"},{model: models.User, as:"Participants"}];
     }
 
 	
@@ -72,6 +72,7 @@ exports.index = function(req,res){
 			if (req.session.user) {
 				quizes.forEach(function(quiz) {
 					quiz.isFav = quiz.Fans.some(function(fan) {return fan.id == req.session.user.id});
+					quiz.won = quiz.Participants.some(function(participant) {return participant.id == req.session.user.id});
 				});
 			}
 						
@@ -81,14 +82,16 @@ exports.index = function(req,res){
 			
 		console.log(req.query.search);
 		var search= '%' +(String(req.query.search)).replace(/\s/g,"%")+'%';
-		models.Quiz.findAll({where: ["pregunta like ?",search], order: ['pregunta'], include : 
-
-			{model: models.User, as: "Fans"}}).then(function(quizes){
+		models.Quiz.findAll({where: ["pregunta like ?",search], order: ['pregunta'], include : {model: models.User, as: "Fans"}}).then(function(quizes){
 			if (req.session.user) {
 				quizes.forEach(function(quiz) {
 					quiz.isFav = quiz.Fans.some(function(fan) {return fan.id == req.session.user.id});
+					quiz.won = quiz.Participants.some(function(participant) {return participant.id == req.session.user.id});				
+
 				});
 			}
+
+
 			res.render('quizes/index.ejs',{quizes: quizes,errors:[]});
 		}).catch(function(error){next(error);});
 	}
@@ -98,23 +101,27 @@ exports.index = function(req,res){
 // GET /quiz/:id
 exports.show = function (req,res){
 	models.Quiz.findAll({where: {id:req.params.quizId}, include:{model: models.User, as: "Fans"}}).then(function(quizes) {
+	 models.Quiz.findAll({where: {id:req.params.quizId}, include:{model: models.User, as: "Participants"}}).then(function(quizesp) {
 	    //	if(req.user){
 			if (req.session.user) {
 				quizes.forEach(function(quiz) {
 					req.quiz.isFav = quiz.Fans.some(function(fan) {return fan.id == req.session.user.id});
-					res.render('quizes/show',{quiz: req.quiz, errors:[]});
+					
 				});
-			
-
+				quizesp.forEach(function(quiz) {
+					req.quiz.won = quiz.Participants.some(function(participant) {return participant.id == req.session.user.id});
+					
+				});			
+				res.render('quizes/show',{quiz: req.quiz, errors:[]});
 			} else{
 				res.render('quizes/show',{quiz: req.quiz, errors:[]});
 			}
-
+		});	
 
 	});
 }
 // GET /quizes/:id/answer
-exports.answer = function(req,res){
+exports.answer = function(req,res,next){
 	var resultado = 'Incorrecto';
 	models.Quiz.findById(req.params.quizId).then(function(quiz){
 		if (req.query.respuesta === req.quiz.respuesta){
@@ -122,6 +129,7 @@ exports.answer = function(req,res){
 		}
 			res.render('quizes/answer',
 				{quiz: quiz,respuesta: resultado, errors:[]});
+			next();
 		
 	})
 };

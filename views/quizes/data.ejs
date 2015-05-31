@@ -42,13 +42,13 @@
       <br><strong  id="fr" margin="20";> Número medio de comentarios por pregunta: </strong> <%= media.toFixed(2) %></br>
       <!--<p><strong> Número de preguntas sin comentarios: </strong> <%= sin %></p>-->
       <!--<p><strong> Número de preguntas con comentarios: </strong> <%=con %></p>-->
-       <%if(session.user){%>
+      <%if(session.user){%>
        <!--<br><strong  id="fr" margin="20";> Número de preguntas superadas: </strong> <%= superadas %></br>-->
      
   </block>
 
   <link rel ='stylesheet'  href='/stylesheets/stats.css' />
-
+  <br>
     <h3>Aciertos: <%=superadas%> / <%=preguntas%> </h3>
 
     <progress class="skill-1" max="100" value="<%= (superadas/preguntas * 100) %>">

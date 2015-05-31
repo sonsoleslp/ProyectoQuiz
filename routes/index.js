@@ -60,7 +60,7 @@ router.put('/user/:userId(\\d+)/favourites/:quizId(\\d+)',  	sessionController.l
 router.delete('/user/:userId(\\d+)/favourites/:quizId(\\d+)', 	sessionController.loginRequired, quizController.propiedad, favscontroller.desmarcar);
 
 router.get('/users',				 		 sessionController.loginRequired, userController.index);
-router.get('/user/:userId(\\d+)',			 sessionController.loginRequired,  userController.show);
+router.get('/user/:userId(\\d+)',			 sessionController.loginRequired,  statscontroller.pasar, userController.show);
 
 router.get('/user/:userId(\\d+)/superados',  sessionController.loginRequired, pointsController.show);
 

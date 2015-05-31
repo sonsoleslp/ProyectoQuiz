@@ -132,7 +132,17 @@ exports.index = function(req,res){
 exports.show = function(req,res){
 
 	models.User.findById(req.user.id).then(function(user){
-		res.render('user/profile',{user:user, errors: []});
+
+		res.render('user/profile',{
+			user:user, 
+			preguntas: req.preguntas, 
+			comentarios: req.comentarios,
+			media: req.media,
+			sin: req.sin,
+			con: req.con,
+			superadas: req.superadas,
+			nosuperadas: req.nosuperadas,
+			errors: []});
 	})
 	
 };

@@ -69,3 +69,40 @@ var won = 0;
 
 
 };
+
+
+
+exports.pasar = function(req,res,next){
+var won = 0;
+	models.Quiz.findAll({ include : {model: models.User, as: "Participants"}}).then(function(quizes){
+
+		models.Comment.findAll({where: {publicado: true}}).then(function(coment){
+
+			var ide = 1;
+			if(req.session && req.user){ ide = req.user.id}
+					models.User.findById(ide).then(function(user){
+					   user.getGanados().then(function(ganados){
+						won = ganados.length;
+			
+	
+						if(coment ==undefined) coment = [];
+						if(quizes == undefined ) quizes = [];
+
+						req.sin= preguntassin(quizes,coment);
+						req.preguntas =num_preguntas(quizes);
+						req.superadas = 0;
+						req.comentarios=num_com(coment);
+						req.media= avg(quizes,coment);
+						req.con= req.preguntas - req.sin;
+						req.superadas= won;
+						req.nosuperadas= req.preguntas-won;
+						next();	
+						
+					});
+
+				});
+		});
+
+
+	});
+};

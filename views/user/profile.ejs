@@ -8,4 +8,20 @@
 <p></p>
 <p><%=user.description%></p>
 <p><a  id ="pregu" href="/user/<%=user.id%>/favourites">Ver favoritos</a></p>
+<br>
+     <%if(session.user){%>
+      
+     
+  </block>
+
+  <link rel ='stylesheet'  href='/stylesheets/stats.css' />
+  <br>
+    <h3>Aciertos: <%=superadas%> / <%=preguntas%> </h3>
+
+    <progress class="skill-1" max="100" value="<%= (superadas/preguntas * 100) %>">
+
+      <strong> </strong>
+    </progress>
+
+ <%}%>
 

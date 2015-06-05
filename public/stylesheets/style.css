@@ -21,17 +21,26 @@ firma{
 
 html{
   font: 14px 'Karla', "Lucida Grande", Helvetica, Arial, sans-serif;
-  cursor:url(/cur.png),  url(/bar.png), auto;}}
+  cursor:url(/cur.png),  url(/bar.png), auto;}
 
 body {
   font: 14px 'Karla', "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+input,button{
+  font: 14px 'Karla', "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+#a2apage_mini_services{
+    font: 14px 'Karla', "Lucida Grande", Helvetica, Arial, sans-serif;
+
 }
 
 a {
   color: #E5012C;
   text-decoration: none;
   cursor:url(/bar.png),pointer;}
-}
+
 
 button,input.submit,.tfbutton,area{cursor:url(/bar.png),pointer;}
 
@@ -73,7 +82,11 @@ nav{
  margin-left: auto;
  margin-right: auto;
  visibility:visible;
- width:75%;
+ width:auto;
+ padding-left: 10px;
+ padding-right: 10px;
+ min-width:60%;
+ max-width:80%;
  text-align:center;
  border-top: 1px solid #e6e9eb;
  border-bottom: 1px solid #e6e9eb;
@@ -143,7 +156,7 @@ span {
 a[data-title]:hover:after {
   content: attr(data-title);
   padding: 4px 8px;
-  color: #333;
+  color: #777;
   position: absolute;
   right: 0;
   top: 100%;
@@ -255,9 +268,12 @@ span.visit{
 
 
 
-#cabecera{max-width:90%;}
+#cabecera{
 
-  nombre{color:#E5012C;
+  max-width:90%;
+}
+
+nombre{color:#E5012C;
   font-weight: 600;}
 
 
@@ -281,6 +297,19 @@ area{
   transform:scale(1.1); 
 
 }
+
+.a2a_menu a{ /*Menú compartir*/
+
+      font: 14px 'Karla', "Lucida Grande", Helvetica, Arial, sans-serif !important;
+      color:#343536 !important;
+
+}
+
+.a2a_full_footer{
+  visibility:hidden;
+}
+
+
 
    /* No funciona para Firefox (sólo para Chrome, Safari...)*/
   ::-webkit-scrollbar {

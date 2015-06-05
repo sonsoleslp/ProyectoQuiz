@@ -12,7 +12,7 @@
  
 </head>
 <body>
-<a class="a2a_dd" href="http://www.addtoany.com/share_save">
+<a class="a2a_dd" style="    font: 14px 'Karla', 'Lucida Grande', Helvetica, Arial, sans-serif;" href="http://www.addtoany.com/share_save">
     <img id="social" src="/images/share.png"  border="0" 
 
 alt="Share"/>
@@ -42,9 +42,9 @@ alt="Share"/>
   <nav class = "main" id="n1" role="navigation">
     <span id="bb"><a id="bar" title="Página principal" href="/">Inicio</a></span>
     <span id="bb"><a id="bar" title="Comienza a jugar" href ="/quizes">Preguntas</a></span>
-    <%if(session.user){%>
+  <%if(session.user){%>
     <span id="bb"><a id="bar" title="Preguntas creadas por ti" href="/user/<%=session.user.id%>/quizes">Mis preguntas</a></span> 
-    <span id="bb"><a id="bar" title="Preguntas acertadas" href="/user/<%=session.user.id%>/superados">Preguntas superadas</a></span> 
+    <span id="bb"><a id="bar" title="Preguntas acertadas" href="/user/<%=session.user.id%>/superados">Aciertos</a></span> 
     <span id="bb"><a id="bar" title="Tus preguntas favoritas" href="/user/<%=session.user.id%>/favourites">Favoritos</a></span> 
     <span id="bb"><a id="bar" title="¿Quién más está jugando?" href="/users">Usuarios</a></span>
   <%}%>

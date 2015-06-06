@@ -18,10 +18,12 @@
 				<td class="columnafoto">
 					<a href="user/<%=users[i].id%>">
 						<%if(users[i].image){%>
-							<img  align="center" id="prof" src ="/media/<%= users[i].image %>" >
+						<%- cloudinary.image(users[i].image, { id:"prof", align:"center" })%>
 						<% } else {%>
-							<img align="center" id="prof" src ="/images/user.png" >
+						<%- cloudinary.image(kudb5ucvig8c7xypfh6w, { id:"prof", align:"center" })%>
+
 						<%}%>
+
 					</a>
 				</td>
 				<td >

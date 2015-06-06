@@ -1,4 +1,5 @@
 var models = require('../models/models.js');
+var cloudinary = require('cloudinary');
 //Comprueba si el usuario está registrado en users
 //Si autenticación falla o hay errores se ejecuta callback(error)
 
@@ -92,9 +93,33 @@ exports.new = function(req,res){
 
 exports.create = function(req,res){
 	
-	if(req.files.image){
+	/*if(req.files.image){
 		req.body.user.image=req.files.image.name;
-	}
+	}*/
+	if(req.files.image){
+		 cloudinary.uploader.upload(
+			req.files.image.path, function(result) { 
+				console.log(result);
+				req.body.user.image = result.public_id;
+				//console.log("imageeeeeeen   " + req.body.quiz.image);
+
+
+			var user = models.User.build(req.body.user);
+	user.validate().then(
+		function(err){
+			if(err){
+				res.render('user/new',{user:user,errors:err.errors});
+			}else{
+				user
+				.save({fields:["username","password", "description","image"]})
+				.then(function(){
+					req.session.user = {id:user.id, username:user.username, description:user.description, image:user.image};
+					res.redirect('/');
+				});
+			}
+		}
+	).catch(function(error){next(error)});});
+} else{
 	var user = models.User.build(req.body.user);
 	user
 	.validate()
@@ -109,9 +134,13 @@ exports.create = function(req,res){
 					req.session.user = {id:user.id, username:user.username, description:user.description, image:user.image};
 					res.redirect('/');
 				});
-			}
-		}
-	).catch(function(error){next(error)});
+					}
+				}
+			).catch(function(error){next(error)});
+	}
+
+
+
 };
 
 exports.destroy = function(req,res){
@@ -121,13 +150,7 @@ exports.destroy = function(req,res){
 	}).catch(function(error){next(error)});
 };
 
-exports.index2 = function(req,res){
 
-	models.User.findAll().then(function(users){
-		res.render('user/index',{users:users, errors: []});
-	})
-	
-};
 
 exports.show = function(req,res){
 
@@ -147,40 +170,7 @@ exports.show = function(req,res){
 	
 };
 
-exports.index3 = function(req,res){
-models.Quiz.findAll({ include : {model: models.User, as: "Participants"}}).then(function(ganados){
-	models.User.findAll({ include : {model: models.Quiz, as: "Ganados"}}).then(function(users){
 
-		users.forEach(function(user){
-			user.puntos=0;
-			ganados.forEach(function(ganado){
-				 if(ganado.id===user.id) user.puntos++;
-				 console.log("gandaoid: " + ganado.id +"  userid: "+ user.id);
-			})
-	
-		});
-		
-
-		/*users.forEach(function(user){
-
-			user.getGanados().then(function(ganados){user.puntos= ganados.length;});
-			console.log(user.puntos);
-		});*/
-			
-			res.render('user/index',{users:users, errors: []});
-		
-	});
- });
-	
-};
-
-
-
-function ordenar(users) {
-
-
-
-};
 
 exports.index = function(req,res){
 

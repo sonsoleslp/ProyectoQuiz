@@ -54,8 +54,8 @@ sequelize.sync().then(function(){
 	User.count().then(function(count){//////})
 		if(count===0){console.log('aqui');
 			User.bulkCreate(
-				[ {username: 'admin', password:'1234', isAdmin: true, image: 'user2.png'},
-				  {username: 'sonsoleslp', password:'5678', description: ' Sonsoles López Pernas. 21 años.', image: 'sonso.png'}
+				[ {username: 'admin', password:'1234', isAdmin: true, image: 'kudb5ucvig8c7xypfh6w'},
+				  {username: 'sonsoleslp', password:'5678', description: ' Sonsoles López Pernas. 21 años.', image: 'sonso_tcivhx'}
 				  ]
 				
 
@@ -65,9 +65,9 @@ sequelize.sync().then(function(){
 				Quiz.count().then(function(count){
 				if(count === 0) {
 					Quiz.bulkCreate(
-					[{pregunta:'Capital de Italia',	respuesta:'Roma', UserId:2, image: 'ITALIA.jpg'},
-				     {pregunta:'Capital de Portugal',respuesta:'Lisboa', UserId:2, image: 'PORTUGAL.png'},
-				     {pregunta:'Capital de España',	respuesta:'Madrid', UserId:2, image: 'SPAIN.jpg'}				     
+					[{pregunta:'Capital de Italia',	respuesta:'Roma', UserId:2, image: 'ITALIA_pim7i8'},
+				     {pregunta:'Capital de Portugal',respuesta:'Lisboa', UserId:2, image: 'PORTUGAL_ptlqvv'},
+				     {pregunta:'Capital de España',	respuesta:'Madrid', UserId:2, image: 'SPAIN_itmfvc'}				     
 					]
 					).then(function(){console.log('Base de datos (tabla quiz) inicializada')});
 					};

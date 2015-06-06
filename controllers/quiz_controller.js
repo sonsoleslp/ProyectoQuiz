@@ -1,4 +1,5 @@
 var models = require('../models/models.js');
+var cloudinary = require('cloudinary');
 
 exports.ownershipRequired = function(req,res,next){
 
@@ -146,22 +147,55 @@ exports.new = function (req,res) {
 //POST /quizes/create
 exports.create = function(req,res) {
 	req.body.quiz.UserId = req.session.user.id;
-
+/*
 	if(req.files.image){
 		req.body.quiz.image = req.files.image.name;
 	}
+*/
+	
 
-	var quiz = models.Quiz.build(req.body.quiz);
-	quiz.validate().then(
-		function(err){
-		if (err) {
-			res.render('quizes/new', {quiz:quiz, errors:err.errors});
-
-		} else {
-			quiz.save({fields: ["pregunta","respuesta","UserId","image"]})
-			.then(function(){res.redirect('/quizes')})}
+	if(req.files.image){
 		
-	}).catch(function(error){next(error)});
+	
+	  cloudinary.uploader.upload(
+			req.files.image.path, function(result) { 
+				console.log(result);
+				req.body.quiz.image = result.public_id;
+			
+			
+		var quiz = models.Quiz.build(req.body.quiz);
+
+				quiz.validate()
+					.then(
+						function(err){
+							if(err) {
+								res.render('quizes/new', {quiz: quiz, errors: err.errors});
+							} else {
+								quiz.save({fields: ["pregunta", "respuesta", "UserId", "image"]})
+								.then(function(){ res.redirect('/quizes')});
+											}
+						}
+					).catch(function(error){next(error)});
+			});} else {
+
+	  	var quiz = models.Quiz.build(req.body.quiz);
+
+				quiz.validate()
+					.then(
+						function(err){
+							if(err) {
+								res.render('quizes/new', {quiz: quiz, errors: err.errors});
+							} else {
+								quiz.save({fields: ["pregunta", "respuesta", "UserId", "image"]})
+								.then(function(){ res.redirect('/quizes')});
+											}
+						}
+					).catch(function(error){next(error)});
+	  }
+		
+	 
+
+
 };
 
 exports.edit = function(req,res) {

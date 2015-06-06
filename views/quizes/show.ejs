@@ -1,7 +1,8 @@
 
  <%if (quiz.image){%>    
- <p><img class="quiz_img" style="max-height:300px;" src="/media/<%= quiz.image %>"></p>
- <%}%>
+
+ <%- cloudinary.image(quiz.image, {  class:"quiz_img" })%><%}%>
+
 <form method ="get" action="/quizes/<%= quiz.id %>/answer">
 		<p id="pregunta_title">Pregunta:    <%=quiz.pregunta%> </p>
 <nobr>		<input class="ress" type="text" name="respuesta" value="Respuesta"/>

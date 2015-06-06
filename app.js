@@ -8,8 +8,9 @@ var bodyParser = require('body-parser');
 var partials = require('express-partials');
 var methodOverride = require('method-override');
 var session = require('express-session');
-var visitas = 0;
 
+var visitas = 0;
+var cloudinary = require('cloudinary');
 var routes = require('./routes/index');
 var author = require('./routes/author');
 //var users = require('./routes/users');
@@ -72,7 +73,7 @@ app.use(function(req,res,next){
     }
     //hacer visible req.session en las vistas
     res.locals.session = req.session;
-
+    res.locals.cloudinary = cloudinary;
     next();
 });
 

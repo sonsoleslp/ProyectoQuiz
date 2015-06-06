@@ -1,8 +1,10 @@
 <h2><%=user.username%></h2>
 <%if(user.image){%>
-<img id="prof2" src ="/media/<%= user.image %>" ><p>
+<%- cloudinary.image(user.image, { id:"prof2" })%>
+<p>
 <% } else {%>
-<img id="prof2" src ="/images/user.png" ><p>
+<%- cloudinary.image(kudb5ucvig8c7xypfh6w, { id:"prof2" })%>
+<p>
 <%}%>
 
 <p></p>

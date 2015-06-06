@@ -249,6 +249,7 @@ span.visit{
 .quiz_img{
   margin-bottom: 20px;
   border-radius:10px;
+  max-height:300px;
 }
 
 #usuarios{

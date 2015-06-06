@@ -1,0 +1,98 @@
+
+.users{
+	text-align: center;
+
+}
+
+#usuarios {
+	padding:5px;
+	display:inline-block;
+	border-width: 2px;
+	border-radius: 8px;
+	border-color: #ddd;
+	vertical-align: top;
+	border-style: dotted;
+}
+
+.rank{
+	position:relative;
+	text-align: top;
+}
+
+.pos{
+	position: absolute;
+	margin:auto;
+	width:117px;
+	text-align: center;
+}
+
+#el1{
+	width: 41%;
+	top:-232px;
+	left: 30%;
+	font-size: 24px;
+	font-weight: bolder;
+}
+#el2{
+	left: 5%;
+	top: -172px;
+	font-size: 18px;
+}
+#el3{
+	right: 2.5%;
+	top: -161px;
+	font-size: 18px;
+}
+
+
+
+
+.puntuacion{
+	text-align: center;
+	padding-left: 40px;
+
+}
+
+td.puntuacion{
+	text-align: center;
+	padding-left: 40px;
+	color:#F60040;
+}
+#pod{
+
+	max-width: 90%;
+}
+
+#el1[data-title]:hover:after {
+  
+  content: attr(data-title);
+  padding: 4px 8px;
+  color: #777;
+  position: absolute;
+  right: 70%;
+  bottom:100%;
+  font-size: 20px;
+  white-space: nowrap;
+}
+
+#el2[data-title]:hover:after {
+  
+  content: attr(data-title);
+  padding: 4px 8px;
+  color: #777;
+  position: absolute;
+  right: 70%;
+  bottom: 100%;
+  white-space: nowrap;
+}
+
+#el3[data-title]:hover:after {
+  
+  content: attr(data-title);
+  padding: 4px 8px;
+  color: #777;
+  position: absolute;
+  left: 70%;
+  bottom: 100%;
+  white-space: nowrap;
+}

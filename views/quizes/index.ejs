@@ -17,7 +17,7 @@
     	<% var i; if (quizes.length==0) { %> No hay resultados 
     	<%} for (i=0; i < quizes.length; i++) { %> 
     	<tr><td >
-		<span style="white-space: nowrap">
+		<span style="white-space: nowrap; ">
 		<a id="pregu" href="/quizes/<%= quizes[i].id %>"><%= quizes[i].pregunta %></a>
 		<%if(session.user)  {
 			if(session.user.isAdmin || session.user.id=== quizes[i].UserId){%>

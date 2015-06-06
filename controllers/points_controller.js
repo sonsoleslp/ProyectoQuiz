@@ -13,23 +13,25 @@ exports.ganar = function(req,res,next){
 					models.User.findById(req.session.user.id).then(function(user){
 					
 						user.addGanados(req.quiz).then(function(){
+							user.score++;
+							user.save({fields: ['score']})
+							
 
 							res.render('quizes/answer', {quiz: quiz,respuesta: resultado, errors:[]})
 								
 						}).catch(function(error){next(error);})});
 					} else {res.render('quizes/answer', {quiz: quiz,respuesta: resultado, errors:[]})}
 		 		}else {res.render('quizes/answer', {quiz: quiz,respuesta: resultado, errors:[]})}
-		 		
-							
-		 
+		 		 
 	 	});
+
 };
 
 
 
 // DELETE /quizes/:userId/favourites/:quizId
 exports.perder = function(req,res,next){
-	console.log("Eliminada de  favoritos");
+
 	var direccion = req.body.redir || '/user/' + req.user.id+ '/superados';
 	req.user.removeGanados(req.quiz).then(function(){
 		res.redirect(direccion);

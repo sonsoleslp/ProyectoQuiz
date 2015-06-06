@@ -1,12 +1,68 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-  </head>
+
   <body>
     <h3>Bienvenido a <%= title %></h3>
     <p>El portal donde podra crear sus propios juegos!</p>
-    
+    <link rel ='stylesheet'  href='/stylesheets/slide.css' />
+
+	<span id="sl_play" class="sl_command">&nbsp;</span>
+	<span id="sl_pause" class="sl_command">&nbsp;</span>
+	<span id="sl_i1" class="sl_command sl_i">&nbsp;</span>
+	<span id="sl_i2" class="sl_command sl_i">&nbsp;</span>
+	<span id="sl_i3" class="sl_command sl_i">&nbsp;</span>
+	<span id="sl_i4" class="sl_command sl_i">&nbsp;</span>
+	
+
+	
+	<section id="slideshow">
+	
+		<a class="commands prev commands1" href="#sl_i4" title="Go to last slide">&lt;</a>
+		<a class="commands next commands1" href="#sl_i2" title="Go to 2nd slide">&gt;</a>
+		<a class="commands prev commands2" href="#sl_i1" title="Go to 1rst slide">&lt;</a>
+		<a class="commands next commands2" href="#sl_i3" title="Go to 3rd slide">&gt;</a>
+		<a class="commands prev commands3" href="#sl_i2" title="Go to 2nd slide">&lt;</a>
+		<a class="commands next commands3" href="#sl_i4" title="Go to 4th slide">&gt;</a>
+		<a class="commands prev commands4" href="#sl_i3" title="Go to 3rd slide">&lt;</a>
+		<a class="commands next commands4" href="#sl_i1" title="Go to first slide">&gt;</a>
+		
+		<a class="play_commands pause" href="#sl_pause" title="Maintain paused">Pause</a>
+		<a class="play_commands play" href="#sl_play" title="Play the animation">Play</a>
+		
+		<div class="container" style="text-align:left; padding:0px">
+			<div class="c_slider" style="text-align:left; padding:0px"></div>
+			<div class="slider" style="text-align:left; padding:0px">
+				<figure>
+					<img src="/images/contesta.png" alt="" width="640" height="310" />
+					<figcaption>Responde preguntas y gana puntos</figcaption>
+				</figure><!--
+				--><figure>
+					<img src="/images/addpreg.png" alt="" width="640" height="310" />
+					<figcaption>Crea tus propias preguntas</figcaption>
+				</figure><!--
+				--><figure>
+					<img src="/images/favs.png" alt="" width="640" height="310" />
+					<figcaption>Marca tus preguntas favoritas</figcaption>
+				</figure><!--
+				--><figure>
+					<img src="/images/rank.png" alt="" width="640" height="310" />
+					<figcaption>Consulta si eres el número 1</figcaption>
+				</figure>
+			</div>
+		</div>
+		
+		<span id="timeline" style="visibility:hidden;"></span>
+		
+		<ul class="dots_commands"><!--
+			--><li><a title="Show slide 1" href="#sl_i1">Slide 1</a></li><!--
+			--><li><a title="Show slide 2" href="#sl_i2">Slide 2</a></li><!--
+			--><li><a title="Show slide 3" href="#sl_i3">Slide 3</a></li><!--
+			--><li><a title="Show slide 4" href="#sl_i4">Slide 4</a></li>
+		</ul>
+		
+	</section>
+	<br><br><br><br>
+    <a href ="/quizes"><button type="button">Juega sin registrarte</button></a>
+	<a href ="/user"><button type="button">Regístrate primero</button></a>
+	<a href ="/login"><button type="button">Ya estoy registrado</button></a>
      <br></br>
 
   </body>

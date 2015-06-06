@@ -28,7 +28,7 @@ body {
 }
 
 input,button{
-  font: 14px 'Karla', "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px 'Karla', "Lucida Grande", Helvetica, Arial, sans-serif !important;
 }
 
 #a2apage_mini_services{
@@ -154,6 +154,7 @@ span {
 
 
 a[data-title]:hover:after {
+  
   content: attr(data-title);
   padding: 4px 8px;
   color: #777;
@@ -164,6 +165,7 @@ a[data-title]:hover:after {
 }
 
 button,#sss,input.file{
+
   margin: 0;
   padding: 5px 15px;
   font-weight: normal;
@@ -326,3 +328,7 @@ area{
     background-color:grey; 
     color:white;}
 
+#usuarios{
+  border:none;
+
+}

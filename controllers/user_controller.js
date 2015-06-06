@@ -121,7 +121,7 @@ exports.destroy = function(req,res){
 	}).catch(function(error){next(error)});
 };
 
-exports.index = function(req,res){
+exports.index2 = function(req,res){
 
 	models.User.findAll().then(function(users){
 		res.render('user/index',{users:users, errors: []});
@@ -143,6 +143,49 @@ exports.show = function(req,res){
 			superadas: req.superadas,
 			nosuperadas: req.nosuperadas,
 			errors: []});
+	})
+	
+};
+
+exports.index3 = function(req,res){
+models.Quiz.findAll({ include : {model: models.User, as: "Participants"}}).then(function(ganados){
+	models.User.findAll({ include : {model: models.Quiz, as: "Ganados"}}).then(function(users){
+
+		users.forEach(function(user){
+			user.puntos=0;
+			ganados.forEach(function(ganado){
+				 if(ganado.id===user.id) user.puntos++;
+				 console.log("gandaoid: " + ganado.id +"  userid: "+ user.id);
+			})
+	
+		});
+		
+
+		/*users.forEach(function(user){
+
+			user.getGanados().then(function(ganados){user.puntos= ganados.length;});
+			console.log(user.puntos);
+		});*/
+			
+			res.render('user/index',{users:users, errors: []});
+		
+	});
+ });
+	
+};
+
+
+
+function ordenar(users) {
+
+
+
+};
+
+exports.index = function(req,res){
+
+	models.User.findAll({order:[['score', 'DESC']]}).then(function(users){
+		res.render('user/index',{users:users, errors: []});
 	})
 	
 };

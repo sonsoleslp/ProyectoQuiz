@@ -1,5 +1,5 @@
 var path = require('path');
-
+var visitasprincipio;
 var url = process.env.DATABASE_URL.match(/(.*)\:\/\/(.*?)\:(.*)@(.*)\:(.*)\/(.*)/);
 var DB_name = (url[6]||null);
 var user = (url[2]||null);
@@ -33,6 +33,9 @@ var user_path = path.join(__dirname, 'user');
 var User = sequelize.import(user_path);
 
 
+//Importar definición de la tabla de visitas
+var cont_path = path.join(__dirname, 'contador');
+var Contador = sequelize.import(cont_path);
 
 //los quizes pertenecen a un usuario registrado
 Quiz.belongsTo(User);
@@ -47,10 +50,16 @@ Quiz.hasMany(Comment);
 exports.Quiz = Quiz;
 exports.Comment = Comment;
 exports.User = User;
-
+exports.Contador = Contador;
 
 
 sequelize.sync().then(function(){
+	Contador.count().then(function(count){
+							visitasprincipio = count || 0;
+							exports.visitasprincipio = visitasprincipio;
+						}).then(function(){
+							
+					
 	User.count().then(function(count){//////})
 		if(count===0){console.log('aqui');
 			User.bulkCreate(
@@ -69,10 +78,13 @@ sequelize.sync().then(function(){
 				     {pregunta:'Capital de Portugal',respuesta:'Lisboa', UserId:2, image: 'PORTUGAL_ptlqvv'},
 				     {pregunta:'Capital de España',	respuesta:'Madrid', UserId:2, image: 'SPAIN_itmfvc'}				     
 					]
-					).then(function(){console.log('Base de datos (tabla quiz) inicializada')});
+					).then(function(){console.log('Base de datos (tabla quiz) inicializada')
+
+					});
 					};
 				});
 			});
 		};
 	});
+	})
 });

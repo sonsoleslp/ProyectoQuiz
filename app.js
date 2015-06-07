@@ -13,7 +13,7 @@ var visitas = 0;
 var cloudinary = require('cloudinary');
 var routes = require('./routes/index');
 var author = require('./routes/author');
-//var users = require('./routes/users');
+var models = require('./models/models');
 
 var app = express();
 
@@ -32,18 +32,27 @@ app.use(session());
 app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+
 //Logout automático
 app.use(function(req,res,next){
     console.log('sesion:  ' +req.session);
      req.session.count = req.session.count || 0;
+    var contadorController = require('./controllers/visitas_controller');
+        if(visitas ===0) visitas = models.visitasprincipio;
 
-     if(req.session.count=== 0) visitas++;
+        if(req.session.count=== 0) { visitas++;
+     contadorController.nuevavisita(req,res,next,JSON.stringify(req.session));}
      req.session.count++;
-
-    console.log("visitas: "+ visitas);
-    console.log("hits del usuario: "+ req.session.count);
-    
+  console.log("aaaaaaaaaaaa "+models.visitasprincipio);
+     console.log("visitas: "+ visitas);
+   // console.log("hits del usuario: "+ req.session.count);
+   // console.log(req.session)
+    // req.session.visitas=visitas;
+    req.session
      req.session.visitas=visitas;
+
+        
     
 
     if (req.session.user){

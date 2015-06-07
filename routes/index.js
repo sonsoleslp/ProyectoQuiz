@@ -9,17 +9,17 @@ var userController = require('../controllers/user_controller');
 var statscontroller = require('../controllers/stats_controller');
 var favscontroller = require('../controllers/favourites_controller');
 var pointsController = require('../controllers/points_controller');
+var visitasController = require('../controllers/visitas_controller');
+
 
 /* GET home page. */
 router.get('/', function(req, res) {
-  res.render('index', { title: 'Quiz', errors: []});
+  res.render('index',  { title: 'Quiz', errors: []});
 });
-//Autoload de comandos con :quizId
 
-router.param('quizId', 		quizController.load);
-router.param('userId',		userController.load);
-router.param('commentId', 	commentController.load);
-
+router.param('quizId', quizController.load);
+router.param('userId',	userController.load);
+router.param('commentId', commentController.load);
 
 //Definición de rutas de sesión
 router.get('/login',  sessionController.new); //formulario login

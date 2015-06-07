@@ -1,0 +1,22 @@
+
+
+<%if(user.image){%>
+<%- cloudinary.image(user.image, { id:"prof2" })%>
+<p> 
+<% } else {%>
+<%- cloudinary.image(kudb5ucvig8c7xypfh6w, { id:"prof2" })%>
+<p>
+<%}%>
+
+<input type="file" accept="image/*" id="image"  name="image"/><p>
+<p>
+<p></p>
+<label for="preg" class="rem">Username:</label>
+<input type="text" id="username" name="user[username]" value="<%= user.username %>"/><p>
+<label for="resp" class="rem">E-mail:</label>
+<input type="text" id="email" name="user[email]" value="<%= user.email %>"/><p>
+
+<label for="resp" class="rem">Escribe algo sobre ti:</label><p>
+<textarea rows="1" cols="26" id="description" name="user[description]" value="<%= user.description %>"/><%= user.description %></textarea><br>
+<a href="/"><button type="button">Cancelar</button></a>
+<input type="submit" id="sss" value="Enviar">

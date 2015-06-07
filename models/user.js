@@ -48,7 +48,10 @@ module.exports = function(sequelize, DataTypes){
 			},
 			image:{
 				type: DataTypes.STRING,
-				defaultValue: 'user.png'
+				defaultValue: 'kudb5ucvig8c7xypfh6w'
+			},
+			email:{
+				type:DataTypes.STRING
 			},
 
 			score:{

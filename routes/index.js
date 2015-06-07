@@ -10,7 +10,7 @@ var statscontroller = require('../controllers/stats_controller');
 var favscontroller = require('../controllers/favourites_controller');
 var pointsController = require('../controllers/points_controller');
 var visitasController = require('../controllers/visitas_controller');
-
+var emailController = require('../controllers/email_controller');
 
 /* GET home page. */
 router.get('/', function(req, res) {
@@ -28,7 +28,7 @@ router.get('/logout', sessionController.destroy); //dstruir sesion
 
 //Definición de rutas de cuenta
 router.get('/user', userController.new);
-router.post('/user', multer({dest:'./public/media/'}), userController.create);
+router.post('/user', multer({dest:'./public/media/'}), userController.create, emailController.enviar, emailController.confirma);
 router.get('/user/:userId(\\d+)/edit',		sessionController.loginRequired, userController.ownershipRequired,  userController.edit);
 router.put('/user/:userId(\\d+)', 			sessionController.loginRequired, userController.ownershipRequired, multer({dest:'./public/media/'}),  userController.update);
 router.delete('/user/:userId(\\d+)', 		sessionController.loginRequired, userController.ownershipRequired, userController.destroy);
@@ -63,5 +63,6 @@ router.get('/users',				 		 sessionController.loginRequired, userController.inde
 router.get('/user/:userId(\\d+)',			 sessionController.loginRequired,  statscontroller.pasar, userController.show);
 
 router.get('/user/:userId(\\d+)/superados',  sessionController.loginRequired, pointsController.show);
+router.get('/sent',  emailController.enviar, emailController.confirma);
 
 module.exports = router;

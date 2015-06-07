@@ -86,12 +86,12 @@ exports.update = function(req,res,next){
 
 exports.new = function(req,res){
 	var user = models.User.build(
-		{username: "", password:""}
+		{username: "", email:""}
 		);
 	res.render('user/new',{user:user,errors:[]})
 };
 
-exports.create = function(req,res){
+exports.create = function(req,res,next){
 	
 	/*if(req.files.image){
 		req.body.user.image=req.files.image.name;
@@ -101,9 +101,12 @@ exports.create = function(req,res){
 			req.files.image.path, function(result) { 
 				console.log(result);
 				req.body.user.image = result.public_id;
+				console.log(result.public_id)
 				//console.log("imageeeeeeen   " + req.body.quiz.image);
-
-
+				req.body.user.password='abshuy823h'+req.body.user.username +'dgi8934';
+				req.passsent=req.body.user.password;
+				req.correo=req.body.user.email;
+				req.usu = req.body.user.username;
 			var user = models.User.build(req.body.user);
 	user.validate().then(
 		function(err){
@@ -111,15 +114,21 @@ exports.create = function(req,res){
 				res.render('user/new',{user:user,errors:err.errors});
 			}else{
 				user
-				.save({fields:["username","password", "description","image"]})
+				.save({fields:["username","email","password", "description","image"]})
 				.then(function(){
-					req.session.user = {id:user.id, username:user.username, description:user.description, image:user.image};
-					res.redirect('/');
+					//req.session.user = {id:user.id, username:user.username, description:user.description, image:user.image};
+					//res.redirect('/sent');
+					next();
 				});
 			}
 		}
 	).catch(function(error){next(error)});});
 } else{
+
+	req.body.user.password='abshuy823h'+req.body.user.username +'dgi8934';
+	req.passsent=req.body.user.password;
+	req.correo=req.body.user.email;
+	req.usu = req.body.user.username;
 	var user = models.User.build(req.body.user);
 	user
 	.validate()
@@ -129,10 +138,10 @@ exports.create = function(req,res){
 				res.render('user/new',{user:user,errors:err.errors});
 			}else{
 				user
-				.save({fields:["username","password", "description","image"]})
+				.save({fields:["username","email","password", "description","image"]})
 				.then(function(){
-					req.session.user = {id:user.id, username:user.username, description:user.description, image:user.image};
-					res.redirect('/');
+					//req.session.user = {id:user.id, username:user.username, description:user.description, image:user.image};
+					next();
 				});
 					}
 				}

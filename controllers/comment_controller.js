@@ -38,6 +38,7 @@ exports.load = function(req,res,next,commentId){
 
 // GET /quizes/:quizId/comments/new
 exports.new = function(req,res){
+
 	res.render('comments/new.ejs', {quizid: req.params.quizId, errors:[]});
 
 };
@@ -51,14 +52,14 @@ exports.create = function(req,res){
 		{texto: req.body.comment.texto, 
 			QuizId: req.params.quizId, autor:usuario});
 
-comment.validate().then(function(err){
-	if(err){
-		res.render('comments/new.ejs',{comment:comment, errors: err.errors});	
-	} else { comment
-		.save()
-		.then( function(){res.redirect('/quizes/'+req.params.quizId)})}
-	
-}).catch(function(error){next(error)});};
+	comment.validate().then(function(err){
+		if(err){
+			res.render('comments/new.ejs',{comment:comment, errors: err.errors});	
+		} else { comment
+			.save()
+			.then( function(){res.redirect('/quizes/'+req.params.quizId)})}
+			
+		}).catch(function(error){next(error)});};
 
 //GET /quizes/:quizId/comments/:commentId/publish
 exports.publish = function(req,res) {
@@ -66,6 +67,6 @@ exports.publish = function(req,res) {
 
 	req.comment.save( {fields: ["publicado"]})
 	.then( function(){res.redirect('/quizes/'+ req.params.quizId);
-console.log("aqui" + req.params.quizId);})
+		console.log("aqui" + req.params.quizId);})
 	.catch(function(error){next(error)});
 };

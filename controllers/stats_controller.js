@@ -18,9 +18,9 @@ function preguntassin(q,c){ ////////////////////////////////////////////////////
 	for (var i =0; i<c.length; i++){
 		if(preg[c[i].QuizId]) preg[c[i].QuizId]+=1;
 		else preg[c[i].QuizId]=1;
-		}
+	}
 
-		llenas=0;
+	llenas=0;
 	for(var k = 0; k<preg.length; k++){
 		if(preg[k]) llenas++;
 	}
@@ -32,39 +32,39 @@ function preguntassin(q,c){ ////////////////////////////////////////////////////
 
 // GET /quizes/statistics
 exports.show = function(req,res){
-var won = 0;
+	var won = 0;
 	models.Quiz.findAll({ include : {model: models.User, as: "Participants"}}).then(function(quizes){
 
 		models.Comment.findAll({where: {publicado: true}}).then(function(coment){
 
 			var ide = 1;
 			if(req.session && req.session.user) ide = req.session.user.id;
-					models.User.findById(ide).then(function(user){
-					   user.getGanados().then(function(ganados){
-						won = ganados.length;
-			
-	
+			models.User.findById(ide).then(function(user){
+				user.getGanados().then(function(ganados){
+					won = ganados.length;
+					
+					
 					if(coment ==undefined) coment = [];
 					if(quizes == undefined ) quizes = [];
-						var sin= preguntassin(quizes,coment);
-						var preguntas =num_preguntas(quizes);
-						var superadas = 0;
-							res.render('quizes/data.ejs',{
-							preguntas: preguntas, 
-							comentarios: num_com(coment),
-							media: avg(quizes,coment),
-							sin: preguntassin(quizes,coment),
-							con: preguntas - sin,
-							superadas:won,
-							nosuperadas:preguntas-won,
-							errors:[]});
-						})
-					})
+					var sin= preguntassin(quizes,coment);
+					var preguntas =num_preguntas(quizes);
+					var superadas = 0;
+					res.render('quizes/data.ejs',{
+						preguntas: preguntas, 
+						comentarios: num_com(coment),
+						media: avg(quizes,coment),
+						sin: preguntassin(quizes,coment),
+						con: preguntas - sin,
+						superadas:won,
+						nosuperadas:preguntas-won,
+						errors:[]});
+				})
+			})
 
-				});
-
-			
 		});
+
+		
+	});
 
 
 
@@ -73,18 +73,18 @@ var won = 0;
 
 
 exports.pasar = function(req,res,next){
-var won = 0;
+	var won = 0;
 	models.Quiz.findAll({ include : {model: models.User, as: "Participants"}}).then(function(quizes){
 
 		models.Comment.findAll({where: {publicado: true}}).then(function(coment){
 
 			var ide = 1;
 			if(req.session && req.user){ ide = req.user.id}
-					models.User.findById(ide).then(function(user){
-					   user.getGanados().then(function(ganados){
+				models.User.findById(ide).then(function(user){
+					user.getGanados().then(function(ganados){
 						won = ganados.length;
-			
-	
+						
+						
 						if(coment ==undefined) coment = [];
 						if(quizes == undefined ) quizes = [];
 

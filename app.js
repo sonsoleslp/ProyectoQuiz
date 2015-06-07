@@ -44,11 +44,10 @@ app.use(function(req,res,next){
         if(req.session.count=== 0) { visitas++;
      contadorController.nuevavisita(req,res,next,JSON.stringify(req.session));}
      req.session.count++;
-  console.log("aaaaaaaaaaaa "+models.visitasprincipio);
+     
      console.log("visitas: "+ visitas);
-   // console.log("hits del usuario: "+ req.session.count);
-   // console.log(req.session)
-    // req.session.visitas=visitas;
+
+
     req.session
      req.session.visitas=visitas;
 

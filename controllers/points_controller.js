@@ -6,24 +6,24 @@ exports.ganar = function(req,res,next){
 	console.log("Ganar!!!!!!!!!!!!!!!");
 
 	var resultado = 'Incorrecto';
-		models.Quiz.findById(req.params.quizId).then(function(quiz){
-			if (req.query.respuesta === req.quiz.respuesta){
-					resultado = 'Correcto';
+	models.Quiz.findById(req.params.quizId).then(function(quiz){
+		if (req.query.respuesta === req.quiz.respuesta){
+			resultado = 'Correcto';
 			if(req.session.user){				
-					models.User.findById(req.session.user.id).then(function(user){
+				models.User.findById(req.session.user.id).then(function(user){
 					
-						user.addGanados(req.quiz).then(function(){
-							user.score++;
-							user.save({fields: ['score']})
-							
+					user.addGanados(req.quiz).then(function(){
+						user.score++;
+						user.save({fields: ['score']})
+						
 
-							res.render('quizes/answer', {quiz: quiz,respuesta: resultado, errors:[]})
-								
-						}).catch(function(error){next(error);})});
-					} else {res.render('quizes/answer', {quiz: quiz,respuesta: resultado, errors:[]})}
-		 		}else {res.render('quizes/answer', {quiz: quiz,respuesta: resultado, errors:[]})}
-		 		 
-	 	});
+						res.render('quizes/answer', {quiz: quiz,respuesta: resultado, errors:[]})
+						
+					}).catch(function(error){next(error);})});
+			} else {res.render('quizes/answer', {quiz: quiz,respuesta: resultado, errors:[]})}
+		}else {res.render('quizes/answer', {quiz: quiz,respuesta: resultado, errors:[]})}
+		
+	});
 
 };
 
@@ -46,8 +46,8 @@ exports.show = function(req,res,next){
 		req.user.getFavourites().then(function(favs){
 
 			superados.forEach(function(superado){
-			superado.isFav = favs.some(function(fan) {return fan.id == superado.id});
-			superado.won =true;
+				superado.isFav = favs.some(function(fan) {return fan.id == superado.id});
+				superado.won =true;
 
 			});
 			res.render('quizes/index.ejs',{quizes:superados, errors:[]});

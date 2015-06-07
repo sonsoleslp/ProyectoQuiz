@@ -1,13 +1,10 @@
 var models = require('../models/models.js');
 var cloudinary = require('cloudinary');
+
 //Comprueba si el usuario está registrado en users
 //Si autenticación falla o hay errores se ejecuta callback(error)
-
-
-
-
 exports.ownershipRequired = function(req,res,next){
-		console.log("entra user");
+	console.log("entra user");
 	var objUser = req.user.id;
 	console.log("objuser ok");
 	var logUser = req.session.user.id;
@@ -49,7 +46,7 @@ exports.autenticar = function(login, password, callback){
 				callback(null,user);
 			} else {callback(new Error('La contraseña introducida no es correcta')); }
 		} else {callback(new Error('El usuario '+login+' no existe' ))}	
-		}).catch(function(error){callback(error)})
+	}).catch(function(error){callback(error)})
 };
 
 exports.edit = function(req,res){
@@ -93,58 +90,54 @@ exports.new = function(req,res){
 
 exports.create = function(req,res,next){
 	
-	/*if(req.files.image){
-		req.body.user.image=req.files.image.name;
-	}*/
+
 	if(req.files.image){
-		 cloudinary.uploader.upload(
+		cloudinary.uploader.upload(
 			req.files.image.path, function(result) { 
 				console.log(result);
 				req.body.user.image = result.public_id;
 				console.log(result.public_id)
 				//console.log("imageeeeeeen   " + req.body.quiz.image);
-				req.body.user.password='abshuy823h'+req.body.user.username +'dgi8934';
+				req.body.user.password=Math.random().toString(36).substring(7);
 				req.passsent=req.body.user.password;
 				req.correo=req.body.user.email;
 				req.usu = req.body.user.username;
-			var user = models.User.build(req.body.user);
-	user.validate().then(
-		function(err){
-			if(err){
-				res.render('user/new',{user:user,errors:err.errors});
-			}else{
-				user
-				.save({fields:["username","email","password", "description","image"]})
-				.then(function(){
-					//req.session.user = {id:user.id, username:user.username, description:user.description, image:user.image};
-					//res.redirect('/sent');
-					next();
-				});
-			}
-		}
-	).catch(function(error){next(error)});});
-} else{
+				var user = models.User.build(req.body.user);
+				user.validate().then(
+					function(err){
+						if(err){
+							res.render('user/new',{user:user,errors:err.errors});
+						}else{
+							user
+							.save({fields:["username","email","password", "description","image"]})
+							.then(function(){
 
-	req.body.user.password='abshuy823h'+req.body.user.username +'dgi8934';
-	req.passsent=req.body.user.password;
-	req.correo=req.body.user.email;
-	req.usu = req.body.user.username;
-	var user = models.User.build(req.body.user);
-	user
-	.validate()
-	.then(
-		function(err){
-			if(err){
-				res.render('user/new',{user:user,errors:err.errors});
-			}else{
-				user
-				.save({fields:["username","email","password", "description","image"]})
-				.then(function(){
-					//req.session.user = {id:user.id, username:user.username, description:user.description, image:user.image};
-					next();
-				});
+								next();
+							});
+						}
 					}
+					).catch(function(error){next(error)});});
+	} else{
+
+		req.body.user.password=Math.random().toString(36).substring(7);
+		req.passsent=req.body.user.password;
+		req.correo=req.body.user.email;
+		req.usu = req.body.user.username;
+		var user = models.User.build(req.body.user);
+		user
+		.validate()
+		.then(
+			function(err){
+				if(err){
+					res.render('user/new',{user:user,errors:err.errors});
+				}else{
+					user
+					.save({fields:["username","email","password", "description","image"]})
+					.then(function(){
+						next();
+					});
 				}
+			}
 			).catch(function(error){next(error)});
 	}
 

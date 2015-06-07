@@ -17,9 +17,9 @@ router.get('/', function(req, res) {
   res.render('index',  { title: 'Quiz', errors: []});
 });
 
-router.param('quizId', quizController.load);
-router.param('userId',	userController.load);
-router.param('commentId', commentController.load);
+router.param('quizId', 		quizController.load);
+router.param('userId',		userController.load);
+router.param('commentId', 	commentController.load);
 
 //Definición de rutas de sesión
 router.get('/login',  sessionController.new); //formulario login
@@ -29,7 +29,7 @@ router.get('/logout', sessionController.destroy); //dstruir sesion
 //Definición de rutas de cuenta
 router.get('/user', userController.new);
 router.post('/user', multer({dest:'./public/media/'}), userController.create, emailController.enviar, emailController.confirma);
-router.get('/user/:userId(\\d+)/edit',		sessionController.loginRequired, userController.ownershipRequired,  userController.edit);
+router.get('/user/:userId(\\d+)/edit',		sessionController.loginRequired, userController.ownershipRequired, userController.edit);
 router.put('/user/:userId(\\d+)', 			sessionController.loginRequired, userController.ownershipRequired, multer({dest:'./public/media/'}),  userController.update);
 router.delete('/user/:userId(\\d+)', 		sessionController.loginRequired, userController.ownershipRequired, userController.destroy);
 router.get('/user/:userId(\\d+)/quizes',	sessionController.loginRequired, userController.ownershipRequired, quizController.index);
